@@ -3,51 +3,287 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
     <title>Flower Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap&subset=cyrillic-ext" rel="stylesheet">
+
 </head>
 <body>
-    <header class="header">
+<header class="header">
   <div class="header__container">
     <!-- Logo -->
-    <a href="#" class="header__logo-link"><img class="header__logo" src="" alt="Logo"></a>
+    <a href="#" class="header__logo-link">
+        <picture class="header__logo-link__img">
+            <source media="(min-width:1024px)" srcset="imgs/desktop/logo.png">
+            <source media="(min-width:768px)"  srcset="imgs/tablet/logo.png">
+            <img src="imgs/mobile/Logo.png" alt="Anemone — Flower Studio logo"> 
+        </picture>
+    </a>
 
     <!-- Navigation -->
     <nav class="header__nav">
       <ul class="header__menu">
-        <li class="header__item"><a href="#" class="header__link">Anemone</a></li>
-        <li class="header__item"><a href="#" class="header__link">About us</a></li>
-        <li class="header__item"><a href="#" class="header__link">Store</a></li>
-        <li class="header__item"><a href="#" class="header__link">Delivery</a></li>
-        <li class="header__item"><a href="#" class="header__link">Blog</a></li>
+        <li class="header__item"><a href="#anemone" class="header__link">Anemone</a></li>
+        <li class="header__item"><a href="#about" class="header__link">About us</a></li>
+        <li class="header__item"><a href="#store" class="header__link">Store</a></li>
+        <li class="header__item"><a href="#delivery" class="header__link">Delivery</a></li>
+        <li class="header__item"><a href="#blog" class="header__link">Blog</a></li>
       </ul>
     </nav>
 
     <!-- Contact Icon -->
     <div class="header__contact"> 
       <a href="#" class="header__contact-link" aria-label="Contact">
-        <svg>
-        </svg>
-      </a>
+        <picture class="header__contact-link__img">
+            <source media="(min-width:1024px)" srcset="icons/desktop/tel.png">
+            <source media="(min-width:768px)"  srcset="icons/tablet/tel.png">
+            <img src="icons/mobile/tel.png" alt="Anemone — Flower Studio logo"> 
+        </picture>
+        </a>
     </div>
   </div>
 </header>
     <main>
         <section class="hero">
-            <div>
-
+            <div class="hero__top">
+                <div class="hero__top__text">
+                    <p>flower studio</p>
+                </div>
+                <div class="hero__top__image" id="anemone">
+                        <picture class="hero__top__image__img">
+                        <source media="(min-width:1024px)" srcset="imgs/desktop/hero.png">
+                        <source media="(min-width:768px)"  srcset="imgs/tablet/hero.png">
+                        <img src="imgs/mobile/hero.png" alt="About section image" loading="lazy">
+                    </picture>
+                </div>
+                <div class="hero__top__logo">
+                    <picture class="hero__top__logo__img">
+                      <source media="(min-width:1024px)" srcset="imgs/desktop/hero_logo.png">   
+                      <source media="(min-width:768px)"  srcset="imgs/tablet/hero-logo.png">    
+                      <img src="imgs/mobile/hero-logo.png" alt="Hero logo">
+                    </picture>
+                </div>
+            </div>
+            <div class="hero__title">
+                <h1>ANEMONE</h1>
             </div>
         </section>
+
         <section class="about">
+            <div class="about__title title" id="about">
+                <h2>ABOUT</h2>
+            </div>
+            <div class="about__main">
+                <div class="about__main__text">
+                    <p>
+                        We are a minimalistic flower studio. We love people and flowers. Therefore, every day we give people the beauty and joy creating stylish and modern masterpieces. Every bouquet we create is unique as you are.
+                    </p>
+                </div>
+                <div class="about__main__photo">
+                    <picture class="about__main__photo__img">
+                        <source media="(min-width:1024px)" srcset="imgs/desktop/about.png">
+                        <source media="(min-width:768px)"  srcset="imgs/tablet/about.png">
+                        <img src="imgs/mobile/about.png" alt="About section image" loading="lazy">
+                    </picture>
+                </div>
+            </div>
         </section>
+
         <section class="store">
+            <div class="store__title title" id="store">
+                <h2>STORE</h2>
+            </div>
+            <div class="store__main">
+                <div class="store__main__card">
+                    <div class="store__main__card__photo photo_1">
+                        <picture class="store__main__card__photo__img">
+                            <source media="(min-width:1024px)" srcset="imgs/desktop/store-1.png">
+                            <source media="(min-width:768px)"  srcset="imgs/tablet/store-1.png">
+                            <img src="imgs/mobile/store-1.png" alt="Store item 1" loading="lazy">
+                        </picture>
+                    </div>
+                    <div class="store__main__card__title">
+                        <p>compliments</p>
+                    </div>
+                    <div class="store__main__card__text">
+                        <p>from $15</p>
+                    </div>
+                </div>
+                <div class="store__main__card">
+                    <div class="store__main__card__photo photo_2">
+                        <picture class="store__main__card__photo__img">
+                            <source media="(min-width:1024px)" srcset="imgs/desktop/store-2.png">
+                            <source media="(min-width:768px)"  srcset="imgs/tablet/store-2.png">
+                            <img src="imgs/mobile/store-2.png" alt="Store item 2" loading="lazy">
+                        </picture>
+                    </div>
+                    <div class="store__main__card__title">
+                        <p>bouquets size S</p>
+                    </div>
+                    <div class="store__main__card__text">
+                        <p>from $25</p>
+                    </div>
+                </div>
+                <div class="store__main__card">
+                    <div class="store__main__card__photo photo_3">
+                        <picture class="store__main__card__photo__img">
+                            <source media="(min-width:1024px)" srcset="imgs/desktop/store-3.png">
+                            <source media="(min-width:768px)"  srcset="imgs/tablet/store-3.png">
+                            <img src="imgs/mobile/store-3.png" alt="Store item 3" loading="lazy">
+                        </picture>
+                    </div>
+                    <div class="store__main__card__title">
+                        <p>bouquets size M</p>
+                    </div>
+                    <div class="store__main__card__text">
+                        <p>from $45</p>
+                    </div>
+                </div>
+                <div class="store__main__card">
+                    <div class="store__main__card__photo photo_4">
+                        <picture class="store__main__card__photo__img">
+                            <source media="(min-width:1024px)" srcset="imgs/desktop/store-4.png">
+                            <source media="(min-width:768px)"  srcset="imgs/tablet/store-4.png">
+                            <img src="imgs/mobile/store-4.png" alt="Store item 4" loading="lazy">
+                        </picture>
+                    </div>
+                    <div class="store__main__card__title">
+                        <p>bouquets size L</p>
+                    </div>
+                    <div class="store__main__card__text">
+                        <p>from $60</p>
+                    </div>
+                </div>
+            </div>
+            <div class="store__button">
+                <button class="button">
+                    Order flowers
+                </button>
+            </div>
         </section>
         <section class="delivery">
+            <div class="delivery__title title" id="delivery">
+                <h2>DELIVERY</h2>
+            </div>
+            <ol class="delivery__list">
+                <li class="delivery__list__item">
+                    <p>Choose your bouquet and make an order on website</p>
+                </li>
+                <li class="delivery__list__item">
+                    <p>Wait for the call to clarify the details of the order. You can pay online or to the courier</p>
+                </li>
+                <li class="delivery__list__item">
+                    <p>Wait for the delivery at the selected time or pick up the order from the store</p>
+                </li>
+                <li class="delivery__list__item">
+                    <p>Make someone happy or enjoy yourself</p>
+                </li>
+            </ol>
+            <div class="delivery__photo">
+            <picture class="delivery__photo__img">
+                <source media="(min-width:1024px)" srcset="imgs/desktop/delivery.png">
+                <source media="(min-width:768px)"  srcset="imgs/tablet/delivery.png">
+                <img src="imgs/mobile/delivery.png" alt="Delivery illustration" loading="lazy">
+            </picture>
+            </div>
         </section>
         <section class="blog">
+            <div class="blog_title title" id="blog">
+                <H2>BLOG</H2>
+            </div>
+            <div class="blog__gallery">
+                <!-- <button class="blog__nav blog__nav--prev" aria-label="Previous"></button> -->
+
+                <picture class="blog__gallery__img blog__img--1">
+                    <source media="(min-width:1024px)" srcset="imgs/desktop/blog-1.png">
+                    <source media="(min-width:768px)"  srcset="imgs/tablet/blog-1.png">
+                    <img src="imgs/mobile/blog-1.png" alt="Blog image 1" loading="lazy">
+                </picture>
+                <picture class="blog__gallery__img blog__img--2">
+                    <source media="(min-width:1024px)" srcset="imgs/desktop/blog-2.png">
+                    <source media="(min-width:768px)"  srcset="imgs/tablet/blog-2.png">
+                    <img src="imgs/mobile/blog-2.png" alt="Blog image 2" loading="lazy">
+                </picture>
+                <picture class="blog__gallery__img blog__img--3">
+                    <source media="(min-width:1024px)" srcset="imgs/desktop/blog-3.png">
+                    <source media="(min-width:768px)"  srcset="imgs/tablet/blog-3.png">
+                    <img src="imgs/mobile/blog-3.png" alt="Blog image 3" loading="lazy">
+                </picture>
+
+               <!-- <button class="blog__nav blog__nav--next" aria-label="Next"></button>-->
+
+            </div>
+            <div class="blog__text">
+                <p>Follow to our newsletter</p>
+            </div>
+            <div class="blog__gallery__button">
+                <button class="button">
+                    Subscribe
+                </button>
+            </div>
         </section>
     </main>
-    <footer>
-
+    <footer class="footer">
+        <div class="footer__logo">
+            <a href="#" class="footer__logo-link">
+                <picture class="footer__logo-link__img">
+                    <source media="(min-width:1024px)" srcset="imgs/desktop/logo-footer.png">
+                    <source media="(min-width:768px)"  srcset="imgs/tablet/">
+                    <img src="imgs/mobile/" alt="Anemone — Flower Studio logo"> 
+                </picture>
+            </a>
+        </div>
+        <div class="footer__navigation">
+            <h3 class="footer__navigation__title">Navigation</h3>
+            <ul class="footer__navigation__list">
+                <li class="footer__navigation__list__item">
+                    <a href="#anemone">Anemone</a>
+                </li>
+                <li class="footer__navigation__list__item">
+                    <a href="#about">About us</a>
+                </li>
+                <li class="footer__navigation__list__item">
+                    <a href="#store">Store</a>
+                </li>
+                <li class="footer__navigation__list__item">
+                    <a href="#delivery">Delivery</a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer__times">
+            <h3 class="footer__times__title">Opening times</h3>
+            <ul class="footer__times__list">
+                <li class="footer__times__list__item">
+                    <p>Every day</p>
+                    <p>9:00 - 22:00</p>
+                </li>
+            </ul>
+        </div>
+        <div class="footer__contacts">
+            <h3 class="footer__contacts__title">Contacts</h3>
+            <ul class="footer__contacts__list">
+                <li class="footer__contacts__list__item">
+                    <p>+38 063 123 45 67</p>
+                </li>
+                <li class="footer__contacts__list__item">
+                    <p>anemonestudio@example.com</p>
+                </li>
+                <li class="footer__contacts__list__item">
+                    <p>Reitarska Street, 11</p>
+                    <p>Kyiv, Ukraine</p>
+                </li>
+            </ul>
+        </div>
+        <div class="footer__icons">
+            <ul class="footer__icons__list">
+                <li class="footer__icons__list__facebook">
+                    <img src="./icons/facebook.png" alt="">
+                </li>
+                <li class="footer__icons__list__instagram">
+                    <img src="./icons/instagram.png" alt="">
+                </li>
+            </ul>
+        </div>
     </footer>
 
 </body>

@@ -1,0 +1,17 @@
+@use './utils/variables';
+@use './utils/mixins';
+@use './utils/placeholders';
+
+@use './components/animations';
+@use './components/forms';
+@use './components/burger';
+@use './components/header';
+@use './components/hero';
+@use './components/delivery';
+@use './components/about';
+@use './components/blog';
+@use './components/store';
+@use './components/footer';
+
+@use './base/reset';
+@use './base/base';

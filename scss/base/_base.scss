@@ -1,0 +1,158 @@
+@use '../utils/variables'   as v;
+@use '../utils/placeholders' as *;
+@use '../utils/mixins'       as m;
+
+
+html,
+body {
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  padding-inline: 16px;
+  padding-block: 0;
+  display: flow-root;
+  font-family: "Montserrat";
+}
+
+@media (min-width: 768px) {
+  body {
+    padding-inline: 30px; 
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-inline: 30px;
+  }
+}
+
+section {
+  max-width: 1280px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+
+main > section {
+  margin: 0 0 60px;
+}
+
+@media (min-width: 768px) {
+  main > section {
+    margin-bottom: 100px;
+  }
+}
+
+
+
+.title {
+  font-weight: 700;
+  font-style: Bold;
+  line-height: 100%;
+  letter-spacing: 0;
+  font-size: 44px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  margin-bottom: 60px; 
+
+  &::after {
+    content: "";
+    flex: 1 1 auto;
+    height: 2px;
+    background: #9aa0a6;
+    box-shadow: 0 1px 0 #cfd2d9 inset;
+  }
+}
+
+@include m.mq(mobile) {
+  .title {
+    font-size: 24px;
+    margin-bottom: 24px; 
+  }
+}
+
+/* BUTTON */
+
+.button {
+  @extend %btn-base !optional;
+  @extend %focus-ring !optional;
+  @include m.button-states;
+
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 28px;
+  line-height: 24px;
+  letter-spacing: 0;
+  color: #fff;
+
+  width: 280px;
+  height: 64px;
+  border-radius: 38px;
+  border: 0;
+  margin: auto;
+  padding: 16px 32px;
+  gap: 10px;
+  opacity: 1;
+
+  top: 1538px;
+  left: 476px;
+
+  will-change: transform;
+  backface-visibility: hidden;
+  transition:
+    background-color .18s ease,
+    box-shadow .18s ease,
+    transform .18s ease,
+    outline-color .18s ease;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+    line-height: 18px;
+  }
+}
+
+@include m.mq(tablet) {
+  .button {
+    width: 280px;
+    height: 64px;
+    border-radius: 38px;
+    padding: 16px 32px;
+    gap: 10px;
+    opacity: 1;
+    top: 623px;
+    left: 351px;
+  }
+}
+
+@include m.mq(mobile) {
+  .button {
+    width: 170px;
+    height: 40px;
+    border-radius: 38px;
+    padding: 14px 28px;
+    gap: 10px;
+    opacity: 1;
+    top: 324px;
+    left: 122px;
+  }
+}
+

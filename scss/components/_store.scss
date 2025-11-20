@@ -1,0 +1,103 @@
+@use '../utils/variables' as v;
+
+.store {
+  /* СПИСОК КАРТОК */
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin-bottom: 60px;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+
+    @media (min-width: 768px) {
+      gap: 24px;
+
+    }
+  }
+
+  /* ОКРЕМИЙ ТОВАР */
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  /* КАРТИНКА ТОВАРУ */
+  &__image {
+    display: block;
+    width: 100%;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  /* НАЗВА БУКЕТА (з лінією) */
+  &__item-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+
+    &::after {
+      content: "";
+      flex: 1 1 auto;
+      height: 2px;
+      background: #cfcfcf;
+    }
+  }
+
+  &__item-price {
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0;
+    margin: 0;
+    color: #666;
+  }
+
+  &__order-button {
+    padding-top: 60px;
+    display: block;
+    margin-inline: auto;
+
+    @media (min-width: 768px) {
+      margin-top: 24px;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .store {
+    &__item-title {
+      font-size: 32px;
+    }
+
+    &__item-price {
+      font-size: 24px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .store {
+    &__item-title {
+      font-size: 16px;
+    }
+
+    &__item-price {
+      font-size: 12px;
+    }
+  }
+}

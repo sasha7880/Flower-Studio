@@ -1,0 +1,109 @@
+@use '../utils/variables' as v;
+@use '../utils/placeholders' as *; 
+@use '../utils/mixins' as m;       
+
+.blog {
+  &__nav {
+    position: absolute;
+    left: 50%;
+    bottom: 16px;
+    z-index: 9999;
+    pointer-events: auto;
+  }
+
+  &__gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    max-width: 1200px;
+    margin: auto;
+    overflow: visible;
+  }
+
+  // обгортка для кнопки "Subscribe"
+  &__button-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 48px;
+  }
+
+  &__text {
+    font-size: 32px;
+    font-style: normal;
+    line-height: 100%;
+    letter-spacing: 0;
+    text-align: center;
+    padding-top: 40px;
+  }
+
+  // стилі для картинок блогу
+  &__img img {
+    width: auto;
+    height: auto;
+    max-width: none;
+    display: block;
+  }
+}
+
+@include m.mq(tablet) {
+  .blog {
+    &__text {
+      padding-top: 32px;
+    }
+
+    &__button-wrap {
+      padding-top: 40px;
+    }
+  }
+}
+
+@include m.mq(mobile) {
+  .blog {
+    &__gallery {
+      gap: 8px;
+    }
+
+    &__button-wrap {
+      padding-top: 32px;
+      padding-bottom: 60px;
+    }
+
+    &__text {
+      font-size: 18px;
+      padding-top: 28px;
+    }
+  }
+}
+
+.btn-reset {
+  @extend %btn-base;
+  @extend %focus-ring;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  line-height: 0;
+}
+
+.blog__gallery {
+  position: relative;
+}
+
+.blog__nav {
+  position: absolute;
+  top: 50%;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  transform: translateY(-50%);
+  z-index: 20;
+}
+
+.blog__nav--prev {
+  left: 0;
+}
+
+.blog__nav--next {
+  right: 0;
+}

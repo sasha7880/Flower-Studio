@@ -1,0 +1,25 @@
+@use "sass:color";
+@use "./variables" as v;
+@mixin button-states {
+  background-color: v.$button-color;
+  transition:
+    background-color .18s ease,
+    box-shadow .18s ease,
+    transform .18s ease,
+    outline-color .18s ease;
+    width: 280px;
+    height: 64px;
+    @media (max-width:768px){
+    width: 138px;
+    height: 24px;   
+    font-size: 20px;
+    }
+  &:hover         { background-color: v.$button-color-hover; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,.08); }
+  &:focus-visible { background-color: v.$button-color-focus; outline: 2px solid rgba(0,0,0,.2); outline-offset: 2px; box-shadow: 0 0 0 4px rgba(0,0,0,.06); }
+  &:active        { transform: translateY(0); box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+}
+
+@mixin mq($bp) {
+  @if $bp == tablet   { @media (max-width: 1024px) { @content; } }
+  @else if $bp == mobile { @media (max-width: 768px)  { @content; } }
+}

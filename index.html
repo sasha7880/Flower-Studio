@@ -5,320 +5,695 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/style.css" />
   <title>Flower Studio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap&subset=cyrillic-ext" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap&subset=cyrillic-ext"
+    rel="stylesheet"
+  />
 </head>
 <body>
-  <header class="header">
-    <div class="header__container">
-      <a href="#" class="header__logo-link" aria-label="Home">
-        <picture class="header__logo-img">
-          <source media="(min-width:1024px)" srcset="imgs/desktop/logo.png" />
-          <source media="(min-width:768px)" srcset="imgs/tablet/logo.png" />
-          <img src="imgs/mobile/Logo.png" alt="Anemone — Flower Studio logo" />
-        </picture>
-      </a>
+<header class="header">
+  <div class="header__container container">
+<a href="#anemone" class="header__logo" aria-label="Home">
+  <svg class="header__logo-icon header__logo-icon--desktop"  aria-hidden="true">
+    <image href="icons/desktop/logo.svg" />
+  </svg>
 
-      <nav class="header__nav" aria-label="Primary">
-        <ul class="header__nav__list">
-          <li class="header__nav__item"><a href="#anemone" class="header__nav__link">Anemone</a></li>
-          <li class="header__nav__item"><a href="#about" class="header__nav__link">About us</a></li>
-          <li class="header__nav__item"><a href="#store" class="header__nav__link">Store</a></li>
-          <li class="header__nav__item"><a href="#delivery" class="header__nav__link">Delivery</a></li>
-          <li class="header__nav__item"><a href="#blog" class="header__nav__link">Blog</a></li>
-        </ul>
-      </nav>
+  <svg class="header__logo-icon header__logo-icon--tablet" aria-hidden="true">
+    <image href="icons/tablet/logo.svg"/>
+  </svg>
 
-      <div class="header__contact">
-        <a href="#" class="header__contact-link" aria-label="Open contact form" aria-expanded="false">
-          <img src="./icons/tel.svg" class="header__contact-img">
-        </a>
-      </div>
+  <svg class="header__logo-icon header__logo-icon--mobile" aria-hidden="true">
+    <image href="icons/mobile/logo.svg"/>
+  </svg>
+</a>
 
-      <button class="burger" type="button" aria-label="Відкрити меню" aria-expanded="false" data-burger>
-        <img class="burger__icon" src="./icons/burger.svg" alt="menu icon" />
+
+    <!-- НАВІГАЦІЯ -->
+    <nav class="header__nav" aria-label="Primary">
+      <ul class="header__nav-list">
+        <li class="header__nav-item">
+          <a href="#anemone" class="header__nav-link">Anemone</a>
+        </li>
+        <li class="header__nav-item">
+          <a href="#about" class="header__nav-link">About us</a>
+        </li>
+        <li class="header__nav-item">
+          <a href="#store" class="header__nav-link">Store</a>
+        </li>
+        <li class="header__nav-item">
+          <a href="#delivery" class="header__nav-link">Delivery</a>
+        </li>
+        <li class="header__nav-item">
+          <a href="#blog" class="header__nav-link">Blog</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- ТЕЛЕФОН: button + SVG -->
+    <button
+      class="header__contact-link"
+      type="button"
+      aria-label="Open contact form"
+      aria-expanded="false"
+    >
+      <svg class="header__contact-icon" width="22" height="22" aria-hidden="true">
+        <image href="./icons/tel.svg" width="22" height="22" />
+      </svg>
+    </button>
+
+    <!-- BURGER -->
+    <button
+      class="burger"
+      type="button"
+      aria-label="Відкрити меню"
+      aria-expanded="false"
+      data-burger
+    >
+      <img class="burger__icon" src="./icons/burger.svg" alt="menu icon" />
+    </button>
+
+    <nav
+      class="burger__panel is__hidden"
+      data-menu
+      aria-hidden="true"
+      aria-label="Mobile"
+    >
+      <button
+        class="burger__close"
+        type="button"
+        aria-label="Закрити меню"
+        data-burger-close
+      >
+        x
       </button>
-      <nav class="burger__panel is__hidden" data-menu aria-hidden="true" aria-label="Mobile">
-        <button class="burger__close" type="button" aria-label="Закрити меню" data-burger-close>
-          <img class="burger__close-icon" src="./icons/x.png" alt="close icon" />
-        </button>
-        <ul class="burger__list">
-          <li class="burger__item"><a class="burger__link" href="#anemone">Anemone</a></li>
-          <li class="burger__item"><a class="burger__link" href="#about">About us</a></li>
-          <li class="burger__item"><a class="burger__link" href="#store">Store</a></li>
-          <li class="burger__item"><a class="burger__link" href="#delivery">Delivery</a></li>
-          <li class="burger__item"><a class="burger__link" href="#blog">Blog</a></li>
-        </ul>
-      </nav>
-    </div>
+      <ul class="burger__list">
+        <li class="burger__item"><a class="burger__link" href="#anemone">Anemone</a></li>
+        <li class="burger__item"><a class="burger__link" href="#about">About us</a></li>
+        <li class="burger__item"><a class="burger__link" href="#store">Store</a></li>
+        <li class="burger__item"><a class="burger__link" href="#delivery">Delivery</a></li>
+        <li class="burger__item"><a class="burger__link" href="#blog">Blog</a></li>
+      </ul>
+    </nav>
+  </div>
 
-    <div class="contact__backdrop is__hidden" data-contact-backdrop>
-      <div class="contact__modal" role="dialog" aria-modal="true" aria-labelledby="contact-title">
-        <button class="contact__modal__close" type="button" aria-label="Закрити форму" data-contact-close>×</button>
-        <h2 class="contact__modal__title" id="contact-title">Contact us</h2>
-        <p class="contact__modal__lead">
-          If you have any additional questions or you want to clarify something before you make an order
-          please fill in your contact details. We will call you back.
-        </p>
-        <form class="contact__modal__form" action="#" method="post" novalidate>
-          <label class="contact__modal__field">
-            <span class="contact__modal__label">Name</span>
-            <input class="contact__modal__input" type="text" name="name" placeholder="Your name" />
-          </label>
-          <label class="contact__modal__field">
-            <span class="contact__modal__label">Email</span>
-            <input class="contact__modal__input" type="email" name="email" placeholder="Your email" />
-          </label>
-          <button class="contact__modal__submit" type="submit">Send</button>
-        </form>
-      </div>
+  <!-- Модалка контакту -->
+  <div class="contact__backdrop is__hidden" data-contact-backdrop>
+    <div class="contact__modal" role="dialog" aria-modal="true" aria-labelledby="contact-title">
+      <button
+        class="contact__close"
+        type="button"
+        aria-label="Закрити форму"
+        data-contact-close
+      >
+        ×
+      </button>
+      <h2 class="contact__title" id="contact-title">Contact us</h2>
+      <p class="contact__lead">
+        If you have any additional questions or you want to clarify something before you make an
+        order please fill in your contact details. We will call you back.
+      </p>
+      <form class="contact__form" action="#" method="post" novalidate>
+        <label class="contact__field">
+          <span class="contact__label">Name</span>
+          <input class="contact__input" type="text" name="name" placeholder="Your name" />
+        </label>
+        <label class="contact__field">
+          <span class="contact__label">Email</span>
+          <input class="contact__input" type="email" name="email" placeholder="Your email" />
+        </label>
+        <button class="contact__submit" type="submit">Send</button>
+      </form>
     </div>
+  </div>
 
-    <div class="thanks__backdrop is__hidden" data-thanks-backdrop>
-      <div class="thanks__modal" role="dialog" aria-modal="true" aria-labelledby="thanks-title">
-        <button class="thanks__modal__close" type="button" aria-label="Close" data-thanks-close>×</button>
-        <picture class="thanks__modal__picture">
-          <source media="(min-width:1024px)" srcset="imgs/desktop/thanks.png" />
-          <source media="(min-width:768px)" srcset="imgs/tablet/thanks.png" />
-          <img src="imgs/mobile/thanks.png" alt="Thank you illustration" loading="lazy" class="thanks__modal__img" />
-        </picture>
-        <h2 class="thanks__modal__title" id="thanks-title">Thank you!</h2>
-        <p class="thanks__modal__text">We have received your contact details and will reach you soon.</p>
-        <button class="thanks__modal__btn" type="button" data-thanks-continue>Continue</button>
-      </div>
+  <!-- Модалка "дякую" -->
+  <div class="thanks__backdrop is__hidden" data-thanks-backdrop>
+    <div class="thanks__modal" role="dialog" aria-modal="true" aria-labelledby="thanks-title">
+      <button
+        class="thanks__close"
+        type="button"
+        aria-label="Close"
+        data-thanks-close
+      >
+        ×
+      </button>
+      <picture class="thanks__picture">
+        <source media="(min-width:1024px)" srcset="imgs/desktop/thanks.png" />
+        <source media="(min-width:768px)" srcset="imgs/tablet/thanks.png" />
+        <img
+          src="imgs/mobile/thanks.png"
+          alt="Thank you illustration"
+          loading="lazy"
+          class="thanks__img"
+        />
+      </picture>
+      <h2 class="thanks__title" id="thanks-title">Thank you!</h2>
+      <p class="thanks__text">We have received your contact details and will reach you soon.</p>
+      <button class="thanks__btn" type="button" data-thanks-continue>Continue</button>
     </div>
-  </header>
+  </div>
+</header>
+
 
   <main>
-    <section class="hero">
+    <!-- HERO -->
+    <section class="hero" id="anemone">
       <div class="hero__top container">
-        <p class="hero__top__text">flower studio</p>
+        <p class="hero__label">flower studio</p>
+
         <picture class="hero__image">
           <source media="(min-width:1024px)" srcset="imgs/desktop/hero.png" />
           <source media="(min-width:768px)" srcset="imgs/tablet/hero.png" />
-          <img src="imgs/mobile/hero.png" alt="Hero image" loading="lazy" />
+          <img src="imgs/mobile/hero.png" alt="Flower composition" loading="lazy" />
         </picture>
-        <picture class="hero__logo-img">
-          <source media="(min-width:1024px)" srcset="imgs/desktop/hero_logo.png" />
-          <source media="(min-width:768px)" srcset="imgs/tablet/hero-logo.png" />
-          <img src="imgs/mobile/hero-logo.png" alt="Hero logo" />
-        </picture>
+<div class="hero__logo">
+  <!-- Desktop -->
+  <svg
+    class="hero__logo-icon hero__logo-icon--desktop"
+    aria-hidden="true"
+    width="166"
+    height="166"
+  >
+    <image href="icons/desktop/hero-logo.svg" width="166" height="166" />
+  </svg>
+
+  <!-- Tablet -->
+  <svg
+    class="hero__logo-icon hero__logo-icon--tablet"
+    aria-hidden="true"
+    width="145"
+    height="150"
+  >
+    <image href="icons/tablet/hero-logo.svg" width="145" height="150" />
+  </svg>
+
+  <!-- Mobile -->
+  <svg
+    class="hero__logo-icon hero__logo-icon--mobile"
+    aria-hidden="true"
+    width="64"
+    height="76"
+  >
+    <image href="icons/mobile/hero-logo.svg" width="64" height="76" />
+  </svg>
+</div>
+
       </div>
       <h1 class="hero__title">ANEMONE</h1>
     </section>
 
+    <!-- ABOUT -->
     <section class="about">
-      <div class="container">
-      <h2 class="about__title title" id="about">ABOUT</h2>
-      <div class="about__main">
-        <p class="about__main__text">
-          We are a minimalistic flower studio. We love people and flowers. Therefore, every day we give people the beauty and joy creating stylish and modern masterpieces. Every bouquet we create is unique as you are.
-        </p>
-        <picture class="about__photo-img about__main__photo">
-          <source media="(min-width:1024px)" srcset="imgs/desktop/about.png" />
-          <source media="(min-width:768px)" srcset="imgs/tablet/about.png" />
-          <img src="imgs/mobile/about.png" alt="About section image" loading="lazy" />
-        </picture>
-      </div>
+      <div class="about__container container">
+        <h2 class="about__title title" id="about">ABOUT</h2>
+        <div class="about__content">
+          <p class="about__text">
+            We are a minimalistic flower studio. We love people and flowers. Therefore, every day we
+            give people the beauty and joy creating stylish and modern masterpieces. Every bouquet
+            we create is unique as you are.
+          </p>
+          <picture class="about__photo">
+            <source media="(min-width:1024px)" srcset="imgs/desktop/about.png" />
+            <source media="(min-width:768px)" srcset="imgs/tablet/about.png" />
+            <img src="imgs/mobile/about.png" alt="Florist at work" loading="lazy" />
+          </picture>
+        </div>
       </div>
     </section>
 
+    <!-- STORE -->
     <section class="store">
-      <div class="container">
-      <h2 class="store__title title" id="store">STORE</h2>
-      <div class="store__main">
-        <div class="store__main__card">
-          <picture class="store__card-photo-img store__main__card__photo photo_1">
-            <source media="(min-width:1024px)" srcset="imgs/desktop/store-1.png" />
-            <source media="(min-width:768px)" srcset="imgs/tablet/store-1.png" />
-            <img src="imgs/mobile/store-1.png" alt="Store item 1" loading="lazy" />
-          </picture>
-          <p class="store__main__card__title">compliments</p>
-          <p class="store__main__card__text">from $15</p>
-        </div>
+      <div class="store__container container">
+        <h2 class="store__title title" id="store">STORE</h2>
 
-        <div class="store__main__card">
-          <picture class="store__card-photo-img store__main__card__photo photo_2">
-            <source media="(min-width:1024px)" srcset="imgs/desktop/store-2.png" />
-            <source media="(min-width:768px)" srcset="imgs/tablet/store-2.png" />
-            <img src="imgs/mobile/store-2.png" alt="Store item 2" loading="lazy" />
-          </picture>
-          <p class="store__main__card__title">bouquets size S</p>
-          <p class="store__main__card__text">from $25</p>
-        </div>
+        <!-- ПІСЛЯ ЗАГОЛОВКА – СПИСОК З 4 ЕЛЕМЕНТІВ -->
+        <ul class="store__list">
+          <li class="store__item">
+            <picture class="store__image store__image--compliments">
+              <source media="(min-width:1024px)" srcset="imgs/desktop/store-1.png" />
+              <source media="(min-width:768px)" srcset="imgs/tablet/store-1.png" />
+              <img src="imgs/mobile/store-1.png" alt="Compliment bouquet" loading="lazy" />
+            </picture>
+            <h3 class="store__item-title">compliments</h3>
+            <p class="store__item-price">from $15</p>
+          </li>
 
-        <div class="store__main__card">
-          <picture class="store__card-photo-img store__main__card__photo photo_3">
-            <source media="(min-width:1024px)" srcset="imgs/desktop/store-3.png" />
-            <source media="(min-width:768px)" srcset="imgs/tablet/store-3.png" />
-            <img src="imgs/mobile/store-3.png" alt="Store item 3" loading="lazy" />
-          </picture>
-          <p class="store__main__card__title">bouquets size M</p>
-          <p class="store__main__card__text">from $45</p>
-        </div>
+          <li class="store__item">
+            <picture class="store__image store__image--s">
+              <source media="(min-width:1024px)" srcset="imgs/desktop/store-2.png" />
+              <source media="(min-width:768px)" srcset="imgs/tablet/store-2.png" />
+              <img src="imgs/mobile/store-2.png" alt="Bouquets size S" loading="lazy" />
+            </picture>
+            <h3 class="store__item-title">bouquets size S</h3>
+            <p class="store__item-price">from $25</p>
+          </li>
 
-        <div class="store__main__card">
-          <picture class="store__card-photo-img store__main__card__photo photo_4">
-            <source media="(min-width:1024px)" srcset="imgs/desktop/store-4.png" />
-            <source media="(min-width:768px)" srcset="imgs/tablet/store-4.png" />
-            <img src="imgs/mobile/store-4.png" alt="Store item 4" loading="lazy" />
-          </picture>
-          <p class="store__main__card__title">bouquets size L</p>
-          <p class="store__main__card__text">from $60</p>
-        </div>
-      </div>
-      <div class="store__button">
-        <button class="button" type="button">Order flowers</button>
-      </div>
+          <li class="store__item">
+            <picture class="store__image store__image--m">
+              <source media="(min-width:1024px)" srcset="imgs/desktop/store-3.png" />
+              <source media="(min-width:768px)" srcset="imgs/tablet/store-3.png" />
+              <img src="imgs/mobile/store-3.png" alt="Bouquets size M" loading="lazy" />
+            </picture>
+            <h3 class="store__item-title">bouquets size M</h3>
+            <p class="store__item-price">from $45</p>
+          </li>
+
+          <li class="store__item">
+            <picture class="store__image store__image--l">
+              <source media="(min-width:1024px)" srcset="imgs/desktop/store-4.png" />
+              <source media="(min-width:768px)" srcset="imgs/tablet/store-4.png" />
+              <img src="imgs/mobile/store-4.png" alt="Bouquets size L" loading="lazy" />
+            </picture>
+            <h3 class="store__item-title">bouquets size L</h3>
+            <p class="store__item-price">from $60</p>
+          </li>
+        </ul>
+
+        <!-- КНОПКА БЕЗ ЗАЙВОГО DIV -->
+        <button class="store__order-button button" type="button">Order flowers</button>
       </div>
     </section>
 
-<section class="delivery">
-  <div class="container">
-    <div class="delivery-title title" id="delivery">
-      <h2 class="delivery-title__text">DELIVERY</h2>
-    </div>
+    <!-- DELIVERY -->
+    <section class="delivery">
+      <div class="delivery__container container">
+        <h2 class="delivery__title title" id="delivery">DELIVERY</h2>
 
-    <ol class="delivery__list">
-      <li class="delivery__list__item">
-        <span class="delivery__list__number">1</span>
-        <p>Choose your bouquet and make an order on website</p>
-      </li>
-      <li class="delivery__list__item">
-        <span class="delivery__list__number">2</span>
-        <p>Wait for the call to clarify the details of the order. You can pay online or to the courier</p>
-      </li>
-      <li class="delivery__list__item">
-        <span class="delivery__list__number">3</span>
-        <p>Wait for the delivery at the selected time or pick up the order from the store</p>
-      </li>
-      <li class="delivery__list__item">
-        <span class="delivery__list__number">4</span>
-        <p>Make someone happy or enjoy yourself</p>
-      </li>
-    </ol>
-
-    <picture class="delivery__photo delivery__photo__img">
-      <source media="(min-width:1024px)" srcset="imgs/desktop/delivery.png" />
-      <source media="(min-width:768px)" srcset="imgs/tablet/delivery.png" />
-      <img src="imgs/mobile/delivery.png" alt="Delivery illustration" loading="lazy" />
-    </picture>
-  </div>
-</section>
-
-    <section class="blog">
-      <div class="container">
-      <h2 class="blog__title title" id="blog">BLOG</h2>
-      <div class="blog__gallery">
-        <button class="blog__nav blog__nav--prev btn-reset" aria-label="Previous">
-          <picture class="blog__nav__icon">
-            <source media="(min-width:1024px)" srcset="icons/desktop/left.png" />
-            <source media="(min-width:768px)" srcset="icons/tablet/left.png" />
-            <img src="icons/mobile/left.png" alt="Previous" loading="lazy" />
-          </picture>
-        </button>
-
-        <picture class="blog__img blog__img--1">
-          <source media="(min-width:1024px)" srcset="imgs/desktop/blog-1.png" />
-          <source media="(min-width:768px)" srcset="imgs/tablet/blog-1.png" />
-          <img src="imgs/mobile/blog-1.png" alt="Blog image 1" loading="lazy" />
-        </picture>
-        <picture class="blog__img blog__img--2">
-          <source media="(min-width:1024px)" srcset="imgs/desktop/blog-2.png" />
-          <source media="(min-width:768px)" srcset="imgs/tablet/blog-2.png" />
-          <img src="imgs/mobile/blog-2.png" alt="Blog image 2" loading="lazy" />
-        </picture>
-        <picture class="blog__img blog__img--3">
-          <source media="(min-width:1024px)" srcset="imgs/desktop/blog-3.png" />
-          <source media="(min-width:768px)" srcset="imgs/tablet/blog-3.png" />
-          <img src="imgs/mobile/blog-3.png" alt="Blog image 3" loading="lazy" />
-        </picture>
-
-        <button class="blog__nav blog__nav--next btn-reset" aria-label="Next">
-          <picture class="blog__nav__icon">
-            <source media="(min-width:1024px)" srcset="icons/desktop/right.png" />
-            <source media="(min-width:768px)" srcset="icons/tablet/right.png" />
-            <img src="icons/mobile/right.png" alt="Next" loading="lazy" />
-          </picture>
-        </button>
-      </div>
-      <p class="blog__text">Follow to our newsletter</p>
-      <div class="blog__gallery__button">
-        <button class="button" type="button" data-subscribe-open>Subscribe</button>
-      </div>
-
-      <div class="subscribe__backdrop is__hidden" data-subscribe-backdrop>
-        <div class="subscribe__modal" role="dialog" aria-modal="true" aria-labelledby="subscribe-title">
-          <button class="subscribe__modal__close" type="button" aria-label="Close" data-subscribe-close>×</button>
-          <picture class="subscribe__modal__picture">
-            <source media="(min-width:1024px)" srcset="imgs/desktop/subscribe-flower.png" />
-            <source media="(min-width:768px)" srcset="imgs/tablet/subscribe-flower.png" />
-            <img src="imgs/mobile/subscribe-flower.png" alt="Flowers" />
-          </picture>
-          <div class="subscribe__modal__content">
-            <h2 class="subscribe__modal__title" id="subscribe-title">Follow to our newsletter</h2>
-            <p class="subscribe__modal__lead">
-              Be the first to get exclusive offers and the latest news on our product directly in your box.
+        <ol class="delivery__list">
+          <li class="delivery__item">
+            <span class="delivery__step">1</span>
+            <p class="delivery__text">Choose your bouquet and make an order on website</p>
+          </li>
+          <li class="delivery__item">
+            <span class="delivery__step">2</span>
+            <p class="delivery__text">
+              Wait for the call to clarify the details of the order. You can pay online or to the
+              courier
             </p>
-            <form class="subscribe__modal__form" action="#" method="post" novalidate>
-              <label class="subscribe__modal__field">
-                <span class="subscribe__modal__label">Email</span>
-                <input class="subscribe__modal__input" type="email" name="email" placeholder="Your email" required />
-              </label>
-              <button class="subscribe__modal__submit is__disabled" type="submit" disabled>Subscribe</button>
-            </form>
+          </li>
+          <li class="delivery__item">
+            <span class="delivery__step">3</span>
+            <p class="delivery__text">
+              Wait for the delivery at the selected time or pick up the order from the store
+            </p>
+          </li>
+          <li class="delivery__item">
+            <span class="delivery__step">4</span>
+            <p class="delivery__text">Make someone happy or enjoy yourself</p>
+          </li>
+        </ol>
+
+        <picture class="delivery__image">
+          <source media="(min-width:1024px)" srcset="imgs/desktop/delivery.png" />
+          <source media="(min-width:768px)" srcset="imgs/tablet/delivery.png" />
+          <img src="imgs/mobile/delivery.png" alt="Delivery illustration" loading="lazy" />
+        </picture>
+      </div>
+    </section>
+
+    <!-- BLOG -->
+    <section class="blog">
+      <div class="blog__container container">
+        <h2 class="blog__title title" id="blog">BLOG</h2>
+
+        <div class="blog__gallery">
+          <button class="blog__nav blog__nav--prev btn-reset" aria-label="Previous">
+            <picture class="blog__nav-icon">
+              <source media="(min-width:1024px)" srcset="icons/desktop/left.png" />
+              <source media="(min-width:768px)" srcset="icons/tablet/left.png" />
+              <img src="icons/mobile/left.png" alt="Previous" loading="lazy" />
+            </picture>
+          </button>
+
+          <picture class="blog__img blog__img--1">
+            <source media="(min-width:1024px)" srcset="imgs/desktop/blog-1.png" />
+            <source media="(min-width:768px)" srcset="imgs/tablet/blog-1.png" />
+            <img src="imgs/mobile/blog-1.png" alt="Blog image 1" loading="lazy" />
+          </picture>
+
+          <picture class="blog__img blog__img--2">
+            <source media="(min-width:1024px)" srcset="imgs/desktop/blog-2.png" />
+            <source media="(min-width:768px)" srcset="imgs/tablet/blog-2.png" />
+            <img src="imgs/mobile/blog-2.png" alt="Blog image 2" loading="lazy" />
+          </picture>
+
+          <picture class="blog__img blog__img--3">
+            <source media="(min-width:1024px)" srcset="imgs/desktop/blog-3.png" />
+            <source media="(min-width:768px)" srcset="imgs/tablet/blog-3.png" />
+            <img src="imgs/mobile/blog-3.png" alt="Blog image 3" loading="lazy" />
+          </picture>
+
+          <button class="blog__nav blog__nav--next btn-reset" aria-label="Next">
+            <picture class="blog__nav-icon">
+              <source media="(min-width:1024px)" srcset="icons/desktop/right.png" />
+              <source media="(min-width:768px)" srcset="icons/tablet/right.png" />
+              <img src="icons/mobile/right.png" alt="Next" loading="lazy" />
+            </picture>
+          </button>
+        </div>
+
+        <p class="blog__text">Follow to our newsletter</p>
+        <div class="blog__button-wrap">
+          <button class="button" type="button" data-subscribe-open>Subscribe</button>
+        </div>
+
+        <!-- SUBSCRIBE MODAL -->
+        <div class="subscribe__backdrop is__hidden" data-subscribe-backdrop>
+          <div
+            class="subscribe__modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="subscribe-title"
+          >
+            <button
+              class="subscribe__close"
+              type="button"
+              aria-label="Close"
+              data-subscribe-close
+            >
+              ×
+            </button>
+            <picture class="subscribe__picture">
+              <source
+                media="(min-width:1024px)"
+                srcset="imgs/desktop/subscribe-flower.png"
+              />
+              <source
+                media="(min-width:768px)"
+                srcset="imgs/tablet/subscribe-flower.png"
+              />
+              <img src="imgs/mobile/subscribe-flower.png" alt="Flowers" />
+            </picture>
+            <div class="subscribe__content">
+              <h2 class="subscribe__title" id="subscribe-title">Follow to our newsletter</h2>
+              <p class="subscribe__lead">
+                Be the first to get exclusive offers and the latest news on our product directly in
+                your box.
+              </p>
+              <form class="subscribe__form" action="#" method="post" novalidate>
+                <label class="subscribe__field">
+                  <span class="subscribe__label">Email</span>
+                  <input
+                    class="subscribe__input"
+                    type="email"
+                    name="email"
+                    placeholder="Your email"
+                    required
+                  />
+                </label>
+                <button
+                  class="subscribe__submit is__disabled"
+                  type="submit"
+                  disabled
+                >
+                  Subscribe
+                </button>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
       </div>
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="footer__logo">
-      <a href="#" class="footer__logo-link" aria-label="Home">
-        <picture class="footer__logo-link__img">
+      <a href="#anemone" class="footer__logo-link" aria-label="Home">
+        <picture class="footer__logo-img">
           <source media="(min-width:1024px)" srcset="imgs/desktop/logo-footer.png" />
-          <source media="(min-width:768px)" srcset="imgs/tablet/" />
-          <img src="imgs/mobile/" alt="Anemone — Flower Studio logo" />
+          <source media="(min-width:768px)" srcset="imgs/tablet/logo-footer.png" />
+          <img src="imgs/mobile/logo-footer.png" alt="Anemone — Flower Studio logo" />
         </picture>
       </a>
     </div>
-    <div class="footer__navigation">
-      <h3 class="footer__navigation__title">Navigation</h3>
-      <ul class="footer__navigation__list">
-        <li class="footer__navigation__list__item"><a href="#anemone">Anemone</a></li>
-        <li class="footer__navigation__list__item"><a href="#about">About us</a></li>
-        <li class="footer__navigation__list__item"><a href="#store">Store</a></li>
-        <li class="footer__navigation__list__item"><a href="#delivery">Delivery</a></li>
+
+    <div class="footer__nav">
+      <h3 class="footer__nav-title">Navigation</h3>
+      <ul class="footer__nav-list">
+        <li class="footer__nav-item"><a href="#anemone">Anemone</a></li>
+        <li class="footer__nav-item"><a href="#about">About us</a></li>
+        <li class="footer__nav-item"><a href="#store">Store</a></li>
+        <li class="footer__nav-item"><a href="#delivery">Delivery</a></li>
       </ul>
     </div>
+
     <div class="footer__times">
-      <h3 class="footer__times__title">Opening times</h3>
-      <ul class="footer__times__list">
-        <li class="footer__times__list__item">
+      <h3 class="footer__times-title">Opening times</h3>
+      <ul class="footer__times-list">
+        <li class="footer__times-item">
           <p>Every day</p>
           <p>9:00 - 22:00</p>
         </li>
       </ul>
     </div>
+
     <div class="footer__contacts">
-      <h3 class="footer__contacts__title">Contacts</h3>
-      <ul class="footer__contacts__list">
-        <li class="footer__contacts__list__item">+38 063 123 45 67</li>
-        <li class="footer__contacts__list__item">anemonestudio@example.com</li>
-        <li class="footer__contacts__list__item">
-Reitarska Street, 11
-Kyiv, Ukraine
+      <h3 class="footer__contacts-title">Contacts</h3>
+      <ul class="footer__contacts-list">
+        <li class="footer__contacts-item">+38 063 123 45 67</li>
+        <li class="footer__contacts-item">anemonestudio@example.com</li>
+        <li class="footer__contacts-item">
+          Reitarska Street, 11<br />
+          Kyiv, Ukraine
         </li>
       </ul>
     </div>
+
     <div class="footer__icons">
-      <ul class="footer__icons__list">
-        <li class="footer__icons__list__facebook"><img src="./icons/facebook.svg" alt="Facebook" /></li>
-        <li class="footer__icons__list__instagram"><img src="./icons/instagram.svg" alt="Instagram" /></li>
+      <ul class="footer__icons-list">
+        <li class="footer__icons-item footer__icons-item--facebook">
+          <img src="./icons/facebook.svg" alt="Facebook" />
+        </li>
+        <li class="footer__icons-item footer__icons-item--instagram">
+          <img src="./icons/instagram.svg" alt="Instagram" />
+        </li>
       </ul>
     </div>
   </footer>
-  
+
+  <!-- SCRIPTS -->
+  <script>
+    (function () {
+      const burgerBtn = document.querySelector('[data-burger]');
+      const panel = document.querySelector('[data-menu]');
+      const closeBtn = document.querySelector('[data-burger-close]');
+      if (!burgerBtn || !panel || !closeBtn) return;
+
+      let lastFocused = null;
+      const isOpen = () => burgerBtn.getAttribute('aria-expanded') === 'true';
+
+      const openMenu = () => {
+        if (isOpen()) return;
+        lastFocused = document.activeElement;
+        burgerBtn.setAttribute('aria-expanded', 'true');
+        panel.classList.remove('is__hidden');
+        panel.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('no-scroll');
+        (closeBtn || panel.querySelector('.burger__link'))?.focus();
+      };
+
+      const closeMenu = () => {
+        if (!isOpen()) return;
+        burgerBtn.setAttribute('aria-expanded', 'false');
+        panel.classList.add('is__hidden');
+        panel.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('no-scroll');
+        (lastFocused || burgerBtn).focus();
+      };
+
+      const toggleMenu = () => (isOpen() ? closeMenu() : openMenu());
+
+      burgerBtn.addEventListener('click', toggleMenu);
+      closeBtn.addEventListener('click', closeMenu);
+
+      panel.addEventListener('click', (e) => {
+        const a = e.target.closest('.burger__link');
+        if (a) closeMenu();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && isOpen()) closeMenu();
+      });
+
+      panel.addEventListener('click', (e) => {
+        if (e.target === panel && isOpen()) closeMenu();
+      });
+
+      const DESKTOP_BP = 1024;
+      window.addEventListener('resize', () => {
+        if (window.innerWidth >= DESKTOP_BP) closeMenu();
+      });
+    })();
+  </script>
+
+  <script>
+    (function () {
+      const openBtn = document.querySelector('.header__contact-link');
+      const backdrop = document.querySelector('[data-contact-backdrop]');
+      const closeBtn = document.querySelector('[data-contact-close]');
+      const form = document.querySelector('.contact__form');
+      const inputs = form ? Array.from(form.querySelectorAll('.contact__input')) : [];
+      const submit = form ? form.querySelector('.contact__submit') : null;
+
+      function openModal(e) {
+        if (e) e.preventDefault();
+        if (!backdrop) return;
+        backdrop.classList.remove('is__hidden');
+        document.body.classList.add('no-scroll');
+        openBtn?.setAttribute('aria-expanded', 'true');
+        validate();
+      }
+
+      function closeModal() {
+        if (!backdrop) return;
+        backdrop.classList.add('is__hidden');
+        document.body.classList.remove('no-scroll');
+        openBtn?.setAttribute('aria-expanded', 'false');
+      }
+
+      function isValidEmail(v) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
+      }
+
+      function validate() {
+        if (!form || !submit) return;
+        const name = (form.elements.name?.value || '').trim();
+        const email = (form.elements.email?.value || '').trim();
+        const ok = name.length > 0 && isValidEmail(email);
+
+        if (ok) {
+          submit.disabled = false;
+          submit.classList.remove('is__disabled');
+        } else {
+          submit.disabled = true;
+          submit.classList.add('is__disabled');
+        }
+      }
+
+      openBtn?.addEventListener('click', openModal);
+      closeBtn?.addEventListener('click', closeModal);
+
+      backdrop?.addEventListener('click', (e) => {
+        if (e.target === backdrop) closeModal();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !backdrop?.classList.contains('is__hidden')) {
+          closeModal();
+        }
+      });
+
+      inputs.forEach((i) => i.addEventListener('input', validate));
+
+      form?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        validate();
+        if (!submit || submit.disabled) return;
+        closeModal();
+        openThanks();
+      });
+    })();
+  </script>
+
+  <script>
+    (() => {
+      const openBtn = document.querySelector('[data-subscribe-open]');
+      const backdrop = document.querySelector('[data-subscribe-backdrop]');
+      const closeBtn = document.querySelector('[data-subscribe-close]');
+      const form = document.querySelector('.subscribe__form');
+      const emailInp = form ? form.querySelector('.subscribe__input') : null;
+      const submit = form ? form.querySelector('.subscribe__submit') : null;
+
+      const open = (e) => {
+        e?.preventDefault();
+        if (!backdrop) return;
+        backdrop.classList.remove('is__hidden');
+        document.body.classList.add('no-scroll');
+        validate();
+      };
+
+      const close = () => {
+        if (!backdrop) return;
+        backdrop.classList.add('is__hidden');
+        document.body.classList.remove('no-scroll');
+      };
+
+      function isValidEmail(v) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((v || '').trim());
+      }
+
+      function validate() {
+        if (!submit) return;
+        const ok = isValidEmail(emailInp?.value);
+        if (ok) {
+          submit.disabled = false;
+          submit.classList.remove('is__disabled');
+        } else {
+          submit.disabled = true;
+          submit.classList.add('is__disabled');
+        }
+      }
+
+      openBtn?.addEventListener('click', open);
+      closeBtn?.addEventListener('click', close);
+
+      backdrop?.addEventListener('click', (e) => {
+        if (e.target === backdrop) close();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !backdrop?.classList.contains('is__hidden')) {
+          close();
+        }
+      });
+
+      emailInp?.addEventListener('input', validate);
+
+      form?.addEventListener('submit', (e) => {
+        validate();
+        if (submit?.disabled) {
+          e.preventDefault();
+          return;
+        }
+        e.preventDefault();
+        close();
+        openThanks();
+      });
+    })();
+  </script>
+
+  <script>
+    (function () {
+      const tBackdrop = document.querySelector('[data-thanks-backdrop]');
+      const tClose = document.querySelector('[data-thanks-close]');
+      const tGo = document.querySelector('[data-thanks-continue]');
+
+      window.openThanks = function () {
+        if (!tBackdrop) return;
+        tBackdrop.classList.remove('is__hidden');
+        document.body.classList.add('no-scroll');
+      };
+
+      function closeThanks() {
+        if (!tBackdrop) return;
+        tBackdrop.classList.add('is__hidden');
+        document.body.classList.remove('no-scroll');
+      }
+
+      tClose?.addEventListener('click', closeThanks);
+      tGo?.addEventListener('click', closeThanks);
+
+      tBackdrop?.addEventListener('click', (e) => {
+        if (e.target === tBackdrop) closeThanks();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !tBackdrop?.classList.contains('is__hidden')) {
+          closeThanks();
+        }
+      });
+    })();
+  </script>
 </body>
 </html>

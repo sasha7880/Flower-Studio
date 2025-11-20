@@ -1,0 +1,88 @@
+@keyframes fadeUp    { from {opacity:0; transform: translateY(16px);} to {opacity:1; transform:none;} }
+@keyframes fadeRight { from {opacity:0; transform: translateX(-24px);} to {opacity:1; transform:none;} }
+@keyframes scaleIn   { from {opacity:0; transform: scale(.96);} to {opacity:1; transform: none;} }
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero__top__image,
+  .hero__top__logo,
+  .hero__title {
+    opacity: 0;
+    transform: translateY(18px);
+    animation: fadeUp 1.8s ease both;
+  }
+
+  .hero__top__image { animation-duration: 2.2s; animation-delay: .15s; }
+  .hero__top__logo  { animation-duration: 2.4s; animation-delay: .35s; }
+  .hero__title      { animation-duration: 2.6s; animation-delay: .9s; }
+}
+
+@supports (animation-timeline: view()) {
+  .title,
+  .about__main__text,
+  .about__main__photo,
+  .store__main__card,
+  .delivery__list__item,
+  .blog__gallery__img,
+  .blog__text,
+  .footer > * {
+    opacity: 0;
+  }
+
+  .title,
+  .blog__text,
+  .footer > * {
+    animation-name: fadeUp;
+    animation-timing-function: ease;
+    animation-fill-mode: both;
+    animation-timeline: view();                
+    animation-range: entry 0% cover 30%;       
+    animation-duration: 1ms;                   
+  }
+
+  .about__main__text {
+    animation-name: fadeUp;
+    animation-timeline: view();
+    animation-range: entry 0% cover 35%;
+    animation-fill-mode: both;
+  }
+  .about__main__photo {
+    animation-name: fadeRight;
+    animation-timeline: view();
+    animation-range: entry 0% cover 35%;
+    animation-fill-mode: both;
+  }
+
+  .store__main__card {
+    animation-name: scaleIn;
+    animation-timeline: view();
+    animation-range: entry 0% cover 35%;
+    animation-fill-mode: both;
+  }
+  .store__main__card:nth-child(1) { animation-delay: .0s; }
+  .store__main__card:nth-child(2) { animation-delay: .04s; }
+  .store__main__card:nth-child(3) { animation-delay: .08s; }
+  .store__main__card:nth-child(4) { animation-delay: .12s; }
+
+  .delivery__list__item {
+    animation-name: fadeUp;
+    animation-timeline: view();
+    animation-range: entry 0% cover 35%;
+    animation-fill-mode: both;
+  }
+  .delivery__list__item:nth-child(1) { animation-delay: .00s; }
+  .delivery__list__item:nth-child(2) { animation-delay: .04s; }
+  .delivery__list__item:nth-child(3) { animation-delay: .08s; }
+  .delivery__list__item:nth-child(4) { animation-delay: .12s; }
+
+  .blog__gallery__img {
+    animation-name: fadeRight;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+    animation-fill-mode: both;
+  }
+  .blog__gallery__img.blog__img--1 { animation-delay: .00s; }
+  .blog__gallery__img.blog__img--2 { animation-delay: .05s; }
+  .blog__gallery__img.blog__img--3 { animation-delay: .10s; }
+}
+
+

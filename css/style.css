@@ -1,5 +1,5 @@
 @charset "UTF-8";
-.button, .btn-reset, .contact__backdrop .contact__modal__form .contact__modal__submit, .subscribe__backdrop .subscribe__modal__form .subscribe__modal__submit, .thanks__modal__btn {
+.button, .btn-reset, .contact__submit, .subscribe__submit, .thanks__btn {
   appearance: none;
   border: 0;
   cursor: pointer;
@@ -10,10 +10,10 @@
   text-decoration: none;
 }
 
-.button:focus, .footer a:focus, .btn-reset:focus, .header__nav__link:focus, .header__contact-link:focus, .contact__backdrop .contact__modal__close:focus, .contact__backdrop .contact__modal__form .contact__modal__submit:focus, .subscribe__backdrop .subscribe__modal__close:focus, .subscribe__backdrop .subscribe__modal__form .subscribe__modal__submit:focus, .thanks__modal__close:focus, .thanks__modal__btn:focus {
+.button:focus, .footer a:focus, .btn-reset:focus, .header__nav-link:focus, .header__contact-link:focus, .contact__close:focus, .contact__submit:focus, .subscribe__close:focus, .subscribe__submit:focus, .thanks__close:focus, .thanks__btn:focus {
   outline: none;
 }
-.button:focus-visible, .footer a:focus-visible, .btn-reset:focus-visible, .header__nav__link:focus-visible, .header__contact-link:focus-visible, .contact__backdrop .contact__modal__close:focus-visible, .contact__backdrop .contact__modal__form .contact__modal__submit:focus-visible, .subscribe__backdrop .subscribe__modal__close:focus-visible, .subscribe__backdrop .subscribe__modal__form .subscribe__modal__submit:focus-visible, .thanks__modal__close:focus-visible, .thanks__modal__btn:focus-visible {
+.button:focus-visible, .footer a:focus-visible, .btn-reset:focus-visible, .header__nav-link:focus-visible, .header__contact-link:focus-visible, .contact__close:focus-visible, .contact__submit:focus-visible, .subscribe__close:focus-visible, .subscribe__submit:focus-visible, .thanks__close:focus-visible, .thanks__btn:focus-visible {
   outline: 2px solid #333;
   outline-offset: 2px;
 }
@@ -154,6 +154,7 @@
     animation-delay: 0.1s;
   }
 }
+/* ===== contact ===== */
 .contact__backdrop {
   position: fixed;
   inset: 0;
@@ -170,17 +171,17 @@
   opacity: 0;
   visibility: hidden;
 }
-.contact__backdrop .contact__modal {
+.contact__modal {
   width: 480px;
   min-height: 560px;
   background: #fff;
   box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
   position: relative;
 }
-.contact__backdrop .contact__modal, .contact__backdrop .contact__modal * {
+.contact__modal, .contact__modal * {
   box-sizing: border-box;
 }
-.contact__backdrop .contact__modal__close {
+.contact__close {
   position: absolute;
   top: 20px;
   right: 20px;
@@ -192,14 +193,7 @@
   font-size: 22px;
   line-height: 1;
 }
-.contact__backdrop .contact__modal__inner {
-  inline-size: 416px;
-  margin: 48px auto 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-.contact__backdrop .contact__modal__title {
+.contact__title {
   margin: 0;
   margin-top: 20%;
   margin-bottom: 3%;
@@ -209,37 +203,36 @@
   line-height: 100%;
   color: #000;
 }
-.contact__backdrop .contact__modal__lead {
+.contact__lead {
   width: 90%;
-  margin: auto;
+  margin: 0 auto;
   font-weight: 500;
   font-size: 16px;
   line-height: 100%;
   color: #4b4b4b;
 }
-.contact__backdrop .contact__modal__field {
-  margin: auto;
-  width: 90%;
-  padding-top: 3%;
-}
-.contact__backdrop .contact__modal__form {
+.contact__form {
   display: flex;
   flex-direction: column;
   gap: 16px;
   margin: auto;
+  width: 100%;
 }
-.contact__backdrop .contact__modal__form .contact__modal__field {
+.contact__field {
+  margin: auto;
+  width: 90%;
+  padding-top: 3%;
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
-.contact__backdrop .contact__modal__form .contact__modal__field .contact__modal__label {
+.contact__label {
   font-weight: 500;
   font-size: 14px;
   line-height: 100%;
   color: #5C5C5C;
 }
-.contact__backdrop .contact__modal__form .contact__modal__field .contact__modal__input {
+.contact__input {
   width: 100%;
   height: 56px;
   border: 1px solid #e6e6e6;
@@ -248,14 +241,14 @@
   outline: none;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
-.contact__backdrop .contact__modal__form .contact__modal__field .contact__modal__input::placeholder {
+.contact__input::placeholder {
   color: #a3a3a3;
 }
-.contact__backdrop .contact__modal__form .contact__modal__field .contact__modal__input:focus {
+.contact__input:focus {
   border-color: #d9b8b2;
   box-shadow: 0 0 0 3px rgba(232, 111, 84, 0.15);
 }
-.contact__backdrop .contact__modal__form .contact__modal__submit {
+.contact__submit {
   margin: auto;
   margin-top: 5%;
   width: 90%;
@@ -268,58 +261,51 @@
   cursor: pointer;
   transition: opacity 0.2s, transform 0.02s;
 }
-.contact__backdrop .contact__modal__form .contact__modal__submit:hover {
+.contact__submit:hover {
   opacity: 0.95;
 }
-.contact__backdrop .contact__modal__form .contact__modal__submit:active {
+.contact__submit:active {
   transform: translateY(1px);
 }
-.contact__backdrop .contact__modal__form .contact__modal__submit.is__disabled {
+.contact__submit.is__disabled {
   background: rgba(232, 111, 84, 0.4);
   cursor: not-allowed;
 }
-.contact__backdrop .contact__modal__form .contact__modal__submit.is__disabled:hover, .contact__backdrop .contact__modal__form .contact__modal__submit.is__disabled:active {
+.contact__submit.is__disabled:hover, .contact__submit.is__disabled:active {
   opacity: 1;
   transform: none;
 }
 @media (min-width: 768px) and (max-width: 1023.98px) {
-  .contact__backdrop .contact__modal {
+  .contact__modal {
     width: 420px;
     min-height: 520px;
   }
-  .contact__backdrop .contact__modal__inner {
-    inline-size: 360px;
-    margin: 40px auto 28px;
-  }
-  .contact__backdrop .contact__modal__title {
+  .contact__title {
     font-size: 28px;
   }
 }
 @media (max-width: 768px) {
-  .contact__backdrop .contact__modal {
+  .contact__modal {
     width: 304px;
     min-height: 420px;
   }
-  .contact__backdrop .contact__modal__inner {
-    inline-size: 272px;
-    margin: 32px auto 24px;
-  }
-  .contact__backdrop .contact__modal__title {
+  .contact__title {
     font-size: 24px;
     margin-top: 10%;
   }
-  .contact__backdrop .contact__modal__lead {
+  .contact__lead {
     font-size: 14px;
   }
-  .contact__backdrop .contact__modal__form .contact__modal__input {
+  .contact__input {
     height: 48px;
   }
-  .contact__backdrop .contact__modal__form .contact__modal__submit {
+  .contact__submit {
     height: 52px;
   }
 }
 
-.no__scroll {
+/* клас, який навішується на body з JS */
+.no-scroll {
   overflow: hidden;
 }
 
@@ -340,7 +326,7 @@
   opacity: 0;
   visibility: hidden;
 }
-.subscribe__backdrop .subscribe__modal {
+.subscribe__modal {
   display: flex;
   align-items: stretch;
   background: #fff;
@@ -350,10 +336,10 @@
   width: 100%;
   position: relative;
 }
-.subscribe__backdrop .subscribe__modal, .subscribe__backdrop .subscribe__modal * {
+.subscribe__modal, .subscribe__modal * {
   box-sizing: border-box;
 }
-.subscribe__backdrop .subscribe__modal__close {
+.subscribe__close {
   position: absolute;
   top: 16px;
   right: 16px;
@@ -365,17 +351,17 @@
   font-size: 24px;
   line-height: 1;
 }
-.subscribe__backdrop .subscribe__modal__picture {
+.subscribe__picture {
   flex: 1 1 50%;
   display: block;
 }
-.subscribe__backdrop .subscribe__modal__picture img {
+.subscribe__picture img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.subscribe__backdrop .subscribe__modal__content {
+.subscribe__content {
   margin-top: 15%;
   flex: 1 1 50%;
   padding: 32px;
@@ -384,31 +370,31 @@
   gap: 24px;
   max-width: 480px;
 }
-.subscribe__backdrop .subscribe__modal__title {
+.subscribe__title {
   margin: 0;
   font: 600 28px/1 "Montserrat", sans-serif;
   color: #111;
 }
-.subscribe__backdrop .subscribe__modal__lead {
+.subscribe__lead {
   margin: 0;
   font: 500 15px/1.4 "Montserrat", sans-serif;
   color: #4b4b4b;
 }
-.subscribe__backdrop .subscribe__modal__form {
+.subscribe__form {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
-.subscribe__backdrop .subscribe__modal__form .subscribe__modal__field {
+.subscribe__field {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
-.subscribe__backdrop .subscribe__modal__form .subscribe__modal__field .subscribe__modal__label {
+.subscribe__label {
   font: 500 14px/1 "Montserrat", sans-serif;
   color: #5C5C5C;
 }
-.subscribe__backdrop .subscribe__modal__form .subscribe__modal__field .subscribe__modal__input {
+.subscribe__input {
   height: 48px;
   width: 100%;
   border: 1px solid #e6e6e6;
@@ -416,11 +402,11 @@
   padding: 0 12px;
   outline: none;
 }
-.subscribe__backdrop .subscribe__modal__form .subscribe__modal__field .subscribe__modal__input:focus {
+.subscribe__input:focus {
   border-color: #c9c9c9;
   box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.06);
 }
-.subscribe__backdrop .subscribe__modal__form .subscribe__modal__submit {
+.subscribe__submit {
   height: 44px;
   border: 0;
   border-radius: 8px;
@@ -430,52 +416,52 @@
   cursor: pointer;
   transition: opacity 0.2s, transform 0.02s;
 }
-.subscribe__backdrop .subscribe__modal__form .subscribe__modal__submit:hover {
+.subscribe__submit:hover {
   opacity: 0.95;
 }
-.subscribe__backdrop .subscribe__modal__form .subscribe__modal__submit:active {
+.subscribe__submit:active {
   transform: translateY(1px);
 }
-.subscribe__backdrop .subscribe__modal__form .subscribe__modal__submit.is__disabled {
+.subscribe__submit.is__disabled {
   background: rgba(232, 111, 84, 0.4);
   cursor: not-allowed;
   pointer-events: none;
 }
 @media (min-width: 768px) and (max-width: 1023.98px) {
-  .subscribe__backdrop .subscribe__modal {
+  .subscribe__modal {
     max-width: 588px;
     flex-direction: column;
   }
-  .subscribe__backdrop .subscribe__modal__content {
+  .subscribe__content {
     padding: 24px 28px 32px;
     gap: 20px;
   }
-  .subscribe__backdrop .subscribe__modal__title {
+  .subscribe__title {
     font-size: 26px;
   }
 }
 @media (max-width: 768px) {
-  .subscribe__backdrop .subscribe__modal {
+  .subscribe__modal {
     max-width: 320px;
     flex-direction: column;
   }
-  .subscribe__backdrop .subscribe__modal__content {
+  .subscribe__content {
     padding: 16px;
     gap: 16px;
   }
-  .subscribe__backdrop .subscribe__modal__title {
+  .subscribe__title {
     font-size: 20px;
   }
-  .subscribe__backdrop .subscribe__modal__lead {
+  .subscribe__lead {
     font-size: 13px;
   }
-  .subscribe__backdrop .subscribe__modal__form {
+  .subscribe__form {
     gap: 12px;
   }
-  .subscribe__backdrop .subscribe__modal__form .subscribe__modal__input {
+  .subscribe__input {
     height: 44px;
   }
-  .subscribe__backdrop .subscribe__modal__form .subscribe__modal__submit {
+  .subscribe__submit {
     height: 42px;
   }
 }
@@ -511,7 +497,7 @@
 .thanks__modal, .thanks__modal * {
   box-sizing: border-box;
 }
-.thanks__modal__close {
+.thanks__close {
   position: absolute;
   top: 16px;
   right: 16px;
@@ -523,12 +509,12 @@
   font-size: 24px;
   line-height: 1;
 }
-.thanks__modal__img {
+.thanks__img {
   display: block;
   margin: 0 auto;
   object-fit: contain;
 }
-.thanks__modal__title {
+.thanks__title {
   margin-top: 16px;
   text-align: center;
   font-weight: 600;
@@ -536,7 +522,7 @@
   line-height: 1;
   color: #111;
 }
-.thanks__modal__text {
+.thanks__text {
   margin-top: 16px;
   margin-bottom: 34px;
   text-align: center;
@@ -546,7 +532,7 @@
   line-height: 1.4;
   max-width: 420px;
 }
-.thanks__modal__btn {
+.thanks__btn {
   margin-top: auto;
   height: 48px;
   width: 416px;
@@ -559,10 +545,10 @@
   cursor: pointer;
   transition: opacity 0.2s, transform 0.02s;
 }
-.thanks__modal__btn:hover {
+.thanks__btn:hover {
   opacity: 0.95;
 }
-.thanks__modal__btn:active {
+.thanks__btn:active {
   transform: translateY(1px);
 }
 @media (max-width: 768px) {
@@ -579,24 +565,25 @@
     justify-content: flex-start;
     text-align: center;
   }
-  .thanks__modal__img {
+  .thanks__img {
     margin: 0 auto 12px auto;
   }
-  .thanks__modal__title {
+  .thanks__title {
     font-size: 20px;
   }
-  .thanks__modal__text {
+  .thanks__text {
     font-size: 12px;
     margin-top: 14px;
     margin-bottom: 18px;
   }
-  .thanks__modal__btn {
+  .thanks__btn {
     width: 100%;
     height: 37px;
   }
 }
 
-.no__scroll {
+/* Клас, який вішаємо на <body> з JS */
+.no-scroll {
   overflow: hidden;
 }
 
@@ -650,6 +637,7 @@
   margin: 0;
   cursor: pointer;
   justify-self: end;
+  color: white;
 }
 .burger__close-icon {
   display: block;
@@ -676,41 +664,54 @@
   display: inline-block;
 }
 
+.header {
+  padding-top: 28px;
+}
 .header__container {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 12px 24px;
+  column-gap: 48px;
+  padding-inline: 24px;
+  padding-block: 0;
   width: 100%;
   margin: 0 auto;
+  min-height: 57px;
 }
 .header {
   /* LOGO */
 }
-.header__logo-link {
+.header__logo {
+  grid-column: 1;
   display: inline-flex;
   align-items: center;
   text-decoration: none;
+  color: inherit;
+  width: 91px;
 }
-.header__logo-link__img {
-  display: inline-block;
+.header__logo-icon {
+  display: none;
+  height: 72px;
 }
-.header__logo-link__img img {
-  display: block;
-  height: 32px;
+.header__logo-icon image {
   width: auto;
+  height: 100%;
+  display: block;
+}
+.header__logo-icon--desktop {
+  display: block;
 }
 .header {
-  /* NAV */
+  /* NAVIGATION */
 }
 .header__nav {
-  flex: 1 1 auto;
+  grid-column: 2, 3;
+  justify-self: center;
   display: flex;
   justify-content: center;
   min-width: 0;
 }
-.header__nav__list {
+.header__nav-list {
   display: flex;
   align-items: center;
   gap: 32px;
@@ -718,84 +719,126 @@
   padding: 0;
   list-style: none;
 }
-.header__nav__item {
+.header__nav-item {
   flex: 0 0 auto;
 }
-.header__nav__link {
+.header__nav-link {
   display: inline-block;
   text-decoration: none;
   color: inherit;
   font-weight: 400;
   font-size: 20px;
-  line-height: 1;
+  line-height: 1.2;
   letter-spacing: 0;
-  padding: 6px 2px;
-  transition: opacity 0.2s ease, color 0.2s ease;
+  padding-block: 0;
+  padding-inline: 2px;
   opacity: 0.9;
+  transition: opacity 0.2s ease, color 0.2s ease;
 }
-.header__nav__link:hover, .header__nav__link:focus-visible {
+.header__nav-link:hover, .header__nav-link:focus-visible {
   opacity: 1;
 }
-.header__contact {
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
+.header {
+  /* CONTACT BUTTON */
 }
 .header__contact-link {
+  grid-column: 3;
+  justify-self: end;
   display: inline-flex;
   align-items: center;
-  text-decoration: none;
+  justify-content: center;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
   color: inherit;
 }
-.header__contact-link__img {
-  display: inline-block;
-}
-.header__contact-link__img img {
+.header__contact-icon {
   display: block;
-  height: 20px;
-  width: auto;
+  width: 22px;
+  height: 22px;
 }
 .header {
-  /* TABLET */
+  /* BURGER – тільки позиція, все інше в burger.scss */
+}
+.header .burger {
+  grid-column: 4;
+  justify-self: end;
+}
+.header {
+  /* ===== TABLET ===== */
 }
 @media (max-width: 1024px) {
   .header__container {
-    padding: 12px 20px;
+    padding-inline: 20px;
+    column-gap: 32px;
   }
-  .header__nav__list {
+  .header__nav-list {
     gap: 24px;
   }
-  .header__nav__link {
-    font-weight: 400;
+  .header__nav-link {
     font-size: 20px;
-    line-height: 1;
-    letter-spacing: 0;
+  }
+  .header__logo-icon--desktop {
+    display: none;
+  }
+  .header__logo-icon--tablet {
+    display: block;
+    height: 30px;
   }
 }
 .header {
-  /* MOBILE */
+  /* ===== MOBILE ===== */
 }
 @media (max-width: 768px) {
+  .header {
+    padding-top: 16px;
+  }
   .header__container {
-    gap: 12px;
-    padding: 12px 16px;
+    padding-inline: 16px;
+    column-gap: 16px;
+    min-height: 48px;
   }
   .header__nav {
     display: none;
   }
-  .header__logo-link__img img {
+  .header__logo-icon--desktop, .header__logo-icon--tablet {
+    display: none;
+  }
+  .header__logo-icon--mobile {
+    display: block;
     height: 28px;
-  }
-  .header__contact {
-    margin-left: auto;
-  }
-  .header__contact-link__img img {
-    height: 18px;
   }
 }
 
 .hero {
   padding-top: 64px;
+}
+.hero__logo-icon {
+  display: none;
+}
+.hero__logo-icon--desktop {
+  display: block;
+}
+@media (max-width: 1024px) {
+  .hero__logo-icon--desktop {
+    display: none;
+  }
+  .hero__logo-icon--tablet {
+    display: block;
+  }
+  .hero__logo-icon--mobile {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  .hero__logo-icon--desktop, .hero__logo-icon--tablet {
+    display: none;
+  }
+  .hero__logo-icon--mobile {
+    display: block;
+  }
 }
 .hero__top {
   display: grid;
@@ -804,27 +847,31 @@
   align-items: center;
   justify-items: center;
 }
-.hero__top__text {
+.hero {
+  /* "flower studio" */
+}
+.hero__label {
   justify-self: end;
   align-self: center;
   text-align: left;
   margin-right: -32px;
   font-size: 32px;
 }
-.hero__top__image {
+.hero {
+  /* основне фото */
+}
+.hero__image {
   justify-self: center;
   align-self: center;
   position: relative;
   z-index: 1;
 }
-.hero__top__image__img, .hero__top__image__img img {
+.hero__image img {
   display: block;
 }
-.hero__top__logo {
+.hero__logo {
   justify-self: start;
   align-self: center;
-}
-.hero__top__logo__img, .hero__top__logo__img img {
   display: block;
 }
 .hero__title {
@@ -844,7 +891,7 @@
   .hero__top {
     column-gap: 32px;
   }
-  .hero__top__text {
+  .hero__label {
     font-size: 24px;
     margin-right: -24px;
   }
@@ -864,13 +911,13 @@
     grid-template-columns: 1fr auto 1fr;
     column-gap: 12px;
   }
-  .hero__top__text {
+  .hero__label {
     justify-self: end;
     text-align: left;
     margin-right: -12px;
     font-size: 14px;
   }
-  .hero__top__logo {
+  .hero__logo {
     justify-self: start;
   }
   .hero__title {
@@ -889,16 +936,16 @@
   font-size: 32px;
   line-height: 1.5;
 }
-.delivery__list__item {
+.delivery__item {
   display: grid;
   grid-template-columns: 64px 1fr;
   column-gap: 16px;
   align-items: center;
 }
-.delivery__list__item p {
+.delivery__item .delivery__text {
   margin: 0;
 }
-.delivery__list__number {
+.delivery__step {
   display: grid;
   place-items: center;
   inline-size: 64px;
@@ -911,17 +958,18 @@
   font-size: 24px;
   line-height: 1;
 }
-.delivery__photo {
+.delivery__image {
   margin-top: 24px;
-}
-.delivery__photo__img {
   display: block;
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
 }
-.delivery__photo__img img {
+.delivery__image img {
   display: block;
-  inline-size: 100%;
-  block-size: auto;
+  width: 100%;
   height: auto;
+  max-width: none;
 }
 @media (min-width: 1024px) {
   .delivery__list {
@@ -934,11 +982,11 @@
     gap: 14px;
     font-size: 14px;
   }
-  .delivery__list__item {
+  .delivery__item {
     grid-template-columns: 40px 1fr;
     column-gap: 12px;
   }
-  .delivery__list__number {
+  .delivery__step {
     inline-size: 40px;
     block-size: 40px;
     border-width: 2px;
@@ -946,38 +994,34 @@
   }
 }
 
-.about__main {
+.about__content {
   display: grid;
   align-items: center;
   gap: 20px;
 }
-.about__main__card {
+.about__text {
   font-weight: 400;
-  font-size: 20px;
-  line-height: 100%;
-  letter-spacing: 0%;
-}
-.about__main__text {
+  font-size: 16px;
   line-height: 1.6;
   letter-spacing: 0;
 }
-.about__main__photo__img {
+.about__photo {
   display: block;
 }
 
 @media (min-width: 768px) {
-  .about__main {
+  .about__content {
     grid-template-columns: 1fr 1fr;
     gap: 24px;
   }
 }
 @media (max-width: 1024px) {
-  .about__main__text {
+  .about__text {
     font-size: 20px;
   }
 }
 @media (max-width: 768px) {
-  .about__main__text {
+  .about__text {
     font-size: 16px;
   }
 }
@@ -988,13 +1032,6 @@
   z-index: 9999;
   pointer-events: auto;
 }
-.blog__gallery__button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 48px;
-  padding-bottom: 100px;
-}
 .blog__gallery {
   display: flex;
   justify-content: center;
@@ -1004,15 +1041,21 @@
   margin: auto;
   overflow: visible;
 }
+.blog__button-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 48px;
+}
 .blog__text {
   font-size: 32px;
-  font-style: Medium;
+  font-style: normal;
   line-height: 100%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   text-align: center;
   padding-top: 40px;
 }
-.blog__gallery__img img {
+.blog__img img {
   width: auto;
   height: auto;
   max-width: none;
@@ -1023,17 +1066,17 @@
   .blog__text {
     padding-top: 32px;
   }
-  .blog__gallery__button {
+  .blog__button-wrap {
     padding-top: 40px;
   }
 }
 @media (max-width: 768px) {
-  .blog__gallery_button {
-    padding-top: 32px;
-    padding-bottom: 60px;
-  }
   .blog__gallery {
     gap: 8px;
+  }
+  .blog__button-wrap {
+    padding-top: 32px;
+    padding-bottom: 60px;
   }
   .blog__text {
     font-size: 18px;
@@ -1069,90 +1112,99 @@
   right: 0;
 }
 
-.store__main {
+.store {
+  /* СПИСОК КАРТОК */
+}
+.store__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  margin-bottom: 60px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
 }
 @media (min-width: 768px) {
-  .store__main {
+  .store__list {
     gap: 24px;
   }
 }
-.store__main__card {
+.store {
+  /* ОКРЕМИЙ ТОВАР */
+}
+.store__item {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
-.store__main__card__photo__img {
-  width: 100%;
-  display: block;
+.store {
+  /* КАРТИНКА ТОВАРУ */
 }
-.store__main__card__photo__img img {
+.store__image {
+  display: block;
+  width: 100%;
+}
+.store__image img {
+  display: block;
   width: 100%;
   height: auto;
-  display: block;
 }
-.store__main__card__title {
+.store {
+  /* НАЗВА БУКЕТА (з лінією) */
+}
+.store__item-title {
+  font-family: "Montserrat", sans-serif;
   font-size: 36px;
-  font-family: Montserrat;
   font-weight: 500;
-  font-style: normal;
   line-height: 1;
   letter-spacing: 0;
   display: flex;
   align-items: center;
   gap: 8px;
-}
-.store__main__card__title p {
   margin: 0;
 }
-.store__main__card__title::after {
+.store__item-title::after {
   content: "";
   flex: 1 1 auto;
   height: 2px;
   background: #cfcfcf;
 }
-.store__main__card__text {
+.store__item-price {
   font-size: 28px;
   font-weight: 600;
-  font-style: normal;
   line-height: 1;
   letter-spacing: 0;
-}
-.store__main__card__text p {
   margin: 0;
   color: #666;
 }
-.store__button {
-  margin-top: 16px;
-  display: flex;
-  justify-content: center;
+.store__order-button {
+  padding-top: 60px;
+  display: block;
+  margin-inline: auto;
 }
 @media (min-width: 768px) {
-  .store__button {
+  .store__order-button {
     margin-top: 24px;
   }
 }
 
 @media (max-width: 1024px) {
-  .store__main__card__title {
+  .store__item-title {
     font-size: 32px;
   }
-  .store__main__card__text {
+  .store__item-price {
     font-size: 24px;
   }
 }
 @media (max-width: 768px) {
-  .store__main__card__title {
+  .store__item-title {
     font-size: 16px;
   }
-  .store__main__card__text {
+  .store__item-price {
     font-size: 12px;
   }
 }
 .footer {
-  /* зняти всі обмеження по ширині */
   max-width: none !important;
   width: 100% !important;
   margin-top: 0 !important;
@@ -1209,7 +1261,7 @@
   display: none;
   align-self: center;
 }
-.footer__logo-link__img, .footer__logo-link__img img {
+.footer__logo-img, .footer__logo-img img {
   display: block;
 }
 @media (min-width: 1024px) {
@@ -1217,22 +1269,22 @@
     display: block;
   }
 }
-.footer__navigation, .footer__times, .footer__contacts {
+.footer__nav, .footer__times, .footer__contacts {
   align-self: flex-start;
 }
 .footer__icons {
   align-self: flex-start;
 }
-.footer__icons__list {
+.footer__icons-list {
   display: flex;
   flex-direction: column;
   gap: 12px;
   align-items: flex-end;
 }
-.footer__icons__list img {
+.footer__icons-list img {
   display: block;
 }
-.footer .footer__times__title {
+.footer .footer__times-title {
   white-space: nowrap;
   overflow-wrap: normal;
   word-break: normal;
@@ -1263,7 +1315,7 @@
     text-align: left;
     grid-template-areas: "nav  times" "cont icons";
   }
-  .footer__navigation {
+  .footer__nav {
     grid-area: nav;
   }
   .footer__times {
@@ -1277,7 +1329,7 @@
     align-self: center;
     justify-self: flex-end;
   }
-  .footer__icons__list {
+  .footer__icons-list {
     flex-direction: row;
     gap: 16px;
     align-items: center;
@@ -1598,3 +1650,4 @@ main > section {
   }
 }
 
+/*# sourceMappingURL=style.css.map */

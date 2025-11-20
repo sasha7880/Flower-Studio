@@ -1,0 +1,45 @@
+@use '../utils/variables' as v;
+@use '../utils/placeholders' as *;  
+@use '../utils/mixins' as m;        
+
+.about {
+  &__content {
+    display: grid;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 16px; // базовий розмір, далі міняємо в mq
+    line-height: 1.6;
+    letter-spacing: 0;
+  }
+
+  &__photo {
+    display: block;
+  }
+}
+
+@media (min-width: 768px) {
+  .about__content {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+}
+
+@include m.mq(tablet) {
+  .about {
+    &__text {
+      font-size: 20px;
+    }
+  }
+}
+
+@include m.mq(mobile) {
+  .about {
+    &__text {
+      font-size: 16px;
+    }
+  }
+}

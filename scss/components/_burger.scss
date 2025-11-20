@@ -1,0 +1,91 @@
+@use '../utils/variables' as v;
+@use '../utils/placeholders' as *; 
+@use '../utils/mixins' as m;       
+
+/* Клас, який вішаємо на <body> з JS */
+.no-scroll {
+  overflow: hidden;
+}
+
+.burger {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 8px; 
+  margin: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  &__icon {
+    display: block; 
+  }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+
+  &__panel {
+    position: fixed;
+    inset: 0;
+    background: v.$button-color; 
+    padding: 24px;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    row-gap: 16px;
+    transition: opacity .2s ease, transform .2s ease;
+    opacity: 1;
+    transform: translateY(0);
+    z-index: 1000;
+
+    &.is__hidden {
+      opacity: 0;
+      transform: translateY(-8px);
+      pointer-events: none;
+    }
+
+    @media (min-width: 1024px) {
+      display: none;
+    }
+  }
+
+  &__close {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    justify-self: end;
+    color: white;
+
+    &-icon {
+      display: block; 
+    }
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-self: center;    
+    justify-self: center;  
+    display: grid;
+    gap: 24px;
+  }
+
+  &__item {
+    text-align: center;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    display: inline-block;
+  }
+}

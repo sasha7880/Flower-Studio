@@ -1,17 +1,28 @@
-@use '../utils/variables' as v;
-@use '../utils/placeholders' as *; 
-@use '../utils/mixins' as m;       
+@use '../utils/variables'   as v;
+@use '../utils/placeholders' as *;
+@use '../utils/mixins'       as m;
 
-/* Клас, який вішаємо на <body> з JS */
-.no-scroll {
+/* ================= BURGER (CSS-only, checkbox) ================= */
+
+/* Прихований чекбокс, який керує відкриттям панелі */
+.burger__toggle {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
   overflow: hidden;
 }
 
+/* Кнопка-іконка (label for="burger-toggle") */
 .burger {
   appearance: none;
   border: 0;
   background: transparent;
-  padding: 8px; 
+  padding: 8px;
   margin: 0;
   cursor: pointer;
   display: inline-flex;
@@ -19,73 +30,86 @@
   justify-content: center;
 
   &__icon {
-    display: block; 
+    display: block;
   }
+
+  /* На планшеті/десктопі бургер не показуємо */
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+/* Повноекранна панель меню (спочатку прихована) */
+.burger__panel {
+  position: fixed;
+  inset: 0;
+  background: v.$button-color;
+  padding: 24px;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  row-gap: 16px;
+
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
+
+  z-index: 1000;
 
   @media (min-width: 768px) {
     display: none;
   }
+}
 
-  &__panel {
-    position: fixed;
-    inset: 0;
-    background: v.$button-color; 
-    padding: 24px;
-    display: grid;
-    grid-template-rows: auto 1fr;
-    row-gap: 16px;
-    transition: opacity .2s ease, transform .2s ease;
-    opacity: 1;
-    transform: translateY(0);
-    z-index: 1000;
+/* Коли чекбокс увімкнено – показуємо панель */
+.burger__toggle:checked ~ .burger__panel {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
 
-    &.is__hidden {
-      opacity: 0;
-      transform: translateY(-8px);
-      pointer-events: none;
-    }
+/* Кнопка закриття (label for="burger-toggle") */
+.burger__close {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
 
-    @media (min-width: 1024px) {
-      display: none;
-    }
-  }
+  justify-self: end;
+  color: #ffffff;
+  font-size: 32px;
+  line-height: 1;
 
-  &__close {
-    appearance: none;
-    border: 0;
-    background: transparent;
-    padding: 0;
-    margin: 0;
-    cursor: pointer;
-    justify-self: end;
-    color: white;
+  @extend %focus-ring !optional;
+}
 
-    &-icon {
-      display: block; 
-    }
-  }
+/* Список посилань в меню */
+.burger__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 
-  &__list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    align-self: center;    
-    justify-self: center;  
-    display: grid;
-    gap: 24px;
-  }
+  align-self: center;
+  justify-self: center;
 
-  &__item {
-    text-align: center;
-  }
+  display: grid;
+  gap: 24px;
+}
 
-  &__link {
-    text-decoration: none;
-    color: #ffffff;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 100%;
-    letter-spacing: 0%;
-    display: inline-block;
-  }
+.burger__item {
+  text-align: center;
+}
+
+.burger__link {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0;
+  display: inline-block;
+
+  @extend %focus-ring !optional;
 }

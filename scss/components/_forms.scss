@@ -2,7 +2,6 @@
 @use '../utils/placeholders' as *;
 @use '../utils/mixins' as m;
 
-/* ===== contact ===== */
 
 .contact {
   &__backdrop {
@@ -14,12 +13,14 @@
     background: rgba(0, 0, 0, .5);
     padding: 16px;
     transition: opacity .2s, visibility .2s;
-    opacity: 1;
-    visibility: visible;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
 
-    &.is__hidden {
-      opacity: 0;
-      visibility: hidden;
+    &:target {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
     }
   }
 
@@ -136,6 +137,7 @@
       transform: translateY(1px);
     }
 
+    /* клас можна залишити, але він вже не потрібен без JS */
     &.is__disabled {
       background: rgba(v.$button-color, .4);
       cursor: not-allowed;
@@ -184,12 +186,6 @@
   }
 }
 
-/* клас, який навішується на body з JS */
-.no-scroll {
-  overflow: hidden;
-}
-
-/* ===== subscribe ===== */
 
 .subscribe {
   &__backdrop {
@@ -201,12 +197,14 @@
     background: rgba(0, 0, 0, .55);
     padding: 16px;
     transition: opacity .2s, visibility .2s;
-    opacity: 1;
-    visibility: visible;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
 
-    &.is__hidden {
-      opacity: 0;
-      visibility: hidden;
+    &:target {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
     }
   }
 
@@ -381,7 +379,6 @@
   }
 }
 
-/* ===== thanks ===== */
 
 .thanks {
   &__backdrop {
@@ -393,12 +390,14 @@
     background: rgba(0, 0, 0, .55);
     padding: 16px;
     transition: opacity .2s, visibility .2s;
-    opacity: 1;
-    visibility: visible;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
 
-    &.is__hidden {
-      opacity: 0;
-      visibility: hidden;
+    &:target {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
     }
   }
 

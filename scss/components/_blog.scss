@@ -23,6 +23,7 @@
 
   // обгортка для кнопки "Subscribe"
   &__button-wrap {
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -106,4 +107,7 @@
 
 .blog__nav--next {
   right: 0;
+}
+.button {
+  width: 150px;
 }

@@ -12,10 +12,10 @@
   text-decoration: none;
 }
 
-.button:focus, .footer a:focus, .btn-reset:focus, .header__nav-link:focus, .header__contact-link:focus, .contact__close:focus, .contact__submit:focus, .subscribe__close:focus, .subscribe__submit:focus, .thanks__close:focus, .thanks__btn:focus {
+.button:focus, .footer a:focus, .btn-reset:focus, .header__nav-link:focus, .header__contact-link:focus, .burger__close:focus, .burger__link:focus, .contact__close:focus, .contact__submit:focus, .subscribe__close:focus, .subscribe__submit:focus, .thanks__close:focus, .thanks__btn:focus {
   outline: none;
 }
-.button:focus-visible, .footer a:focus-visible, .btn-reset:focus-visible, .header__nav-link:focus-visible, .header__contact-link:focus-visible, .contact__close:focus-visible, .contact__submit:focus-visible, .subscribe__close:focus-visible, .subscribe__submit:focus-visible, .thanks__close:focus-visible, .thanks__btn:focus-visible {
+.button:focus-visible, .footer a:focus-visible, .btn-reset:focus-visible, .header__nav-link:focus-visible, .header__contact-link:focus-visible, .burger__close:focus-visible, .burger__link:focus-visible, .contact__close:focus-visible, .contact__submit:focus-visible, .subscribe__close:focus-visible, .subscribe__submit:focus-visible, .thanks__close:focus-visible, .thanks__btn:focus-visible {
   outline: 2px solid #333;
   outline-offset: 2px;
 }
@@ -156,7 +156,6 @@
     animation-delay: 0.1s;
   }
 }
-/* ===== contact ===== */
 .contact__backdrop {
   position: fixed;
   inset: 0;
@@ -166,12 +165,14 @@
   background: rgba(0, 0, 0, 0.5);
   padding: 16px;
   transition: opacity 0.2s, visibility 0.2s;
-  opacity: 1;
-  visibility: visible;
-}
-.contact__backdrop.is__hidden {
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
+}
+.contact__backdrop:target {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 .contact__modal {
   width: 480px;
@@ -265,6 +266,7 @@
   background: #E86F54;
   cursor: pointer;
   transition: opacity 0.2s, transform 0.02s;
+  /* клас можна залишити, але він вже не потрібен без JS */
 }
 .contact__submit:hover {
   opacity: 0.95;
@@ -309,12 +311,6 @@
   }
 }
 
-/* клас, який навішується на body з JS */
-.no-scroll {
-  overflow: hidden;
-}
-
-/* ===== subscribe ===== */
 .subscribe__backdrop {
   position: fixed;
   inset: 0;
@@ -324,12 +320,14 @@
   background: rgba(0, 0, 0, 0.55);
   padding: 16px;
   transition: opacity 0.2s, visibility 0.2s;
-  opacity: 1;
-  visibility: visible;
-}
-.subscribe__backdrop.is__hidden {
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
+}
+.subscribe__backdrop:target {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 .subscribe__modal {
   display: flex;
@@ -472,7 +470,6 @@
   }
 }
 
-/* ===== thanks ===== */
 .thanks__backdrop {
   position: fixed;
   inset: 0;
@@ -482,12 +479,14 @@
   background: rgba(0, 0, 0, 0.55);
   padding: 16px;
   transition: opacity 0.2s, visibility 0.2s;
-  opacity: 1;
-  visibility: visible;
-}
-.thanks__backdrop.is__hidden {
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
+}
+.thanks__backdrop:target {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 .thanks__modal {
   background: #fff;
@@ -589,11 +588,21 @@
   }
 }
 
-/* Клас, який вішаємо на <body> з JS */
-.no-scroll {
+/* ================= BURGER (CSS-only, checkbox) ================= */
+/* Прихований чекбокс, який керує відкриттям панелі */
+.burger__toggle {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
   overflow: hidden;
 }
 
+/* Кнопка-іконка (label for="burger-toggle") */
 .burger {
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -606,6 +615,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  /* На планшеті/десктопі бургер не показуємо */
 }
 .burger__icon {
   display: block;
@@ -615,6 +625,8 @@
     display: none;
   }
 }
+
+/* Повноекранна панель меню (спочатку прихована) */
 .burger__panel {
   position: fixed;
   inset: 0;
@@ -623,21 +635,26 @@
   display: grid;
   grid-template-rows: auto 1fr;
   row-gap: 16px;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-  opacity: 1;
-  transform: translateY(0);
-  z-index: 1000;
-}
-.burger__panel.is__hidden {
   opacity: 0;
   transform: translateY(-8px);
   pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 1000;
 }
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .burger__panel {
     display: none;
   }
 }
+
+/* Коли чекбокс увімкнено – показуємо панель */
+.burger__toggle:checked ~ .burger__panel {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Кнопка закриття (label for="burger-toggle") */
 .burger__close {
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -648,11 +665,12 @@
   margin: 0;
   cursor: pointer;
   justify-self: end;
-  color: white;
+  color: #ffffff;
+  font-size: 32px;
+  line-height: 1;
 }
-.burger__close-icon {
-  display: block;
-}
+
+/* Список посилань в меню */
 .burger__list {
   list-style: none;
   margin: 0;
@@ -662,16 +680,18 @@
   display: grid;
   gap: 24px;
 }
+
 .burger__item {
   text-align: center;
 }
+
 .burger__link {
   text-decoration: none;
   color: #ffffff;
   font-weight: 400;
   font-size: 20px;
   line-height: 100%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   display: inline-block;
 }
 
@@ -1040,6 +1060,7 @@
   overflow: visible;
 }
 .blog__button-wrap {
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1108,6 +1129,10 @@
 
 .blog__nav--next {
   right: 0;
+}
+
+.button {
+  width: 150px;
 }
 
 .store {
@@ -1578,7 +1603,7 @@ main > section {
   letter-spacing: 0;
   color: #fff;
   width: 280px;
-  height: 64px;
+  height: 54px;
   border-radius: 38px;
   border: 0;
   margin: auto;

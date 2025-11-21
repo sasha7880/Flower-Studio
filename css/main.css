@@ -1,6 +1,8 @@
 @charset "UTF-8";
 .button, .btn-reset, .contact__submit, .subscribe__submit, .thanks__btn {
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   border: 0;
   cursor: pointer;
   display: inline-flex;
@@ -241,6 +243,9 @@
   outline: none;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
+.contact__input::-moz-placeholder {
+  color: #a3a3a3;
+}
 .contact__input::placeholder {
   color: #a3a3a3;
 }
@@ -359,7 +364,8 @@
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .subscribe__content {
   margin-top: 15%;
@@ -512,7 +518,8 @@
 .thanks__img {
   display: block;
   margin: 0 auto;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .thanks__title {
   margin-top: 16px;
@@ -588,7 +595,9 @@
 }
 
 .burger {
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   border: 0;
   background: transparent;
   padding: 8px;
@@ -630,7 +639,9 @@
   }
 }
 .burger__close {
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   border: 0;
   background: transparent;
   padding: 0;
@@ -666,20 +677,24 @@
 
 .header {
   padding-top: 28px;
+  /* LOGO */
+  /* NAVIGATION */
+  /* CONTACT BUTTON */
+  /* BURGER – тільки позиція, все інше в burger.scss */
+  /* ===== TABLET ===== */
+  /* ===== MOBILE ===== */
 }
 .header__container {
   display: grid;
   grid-template-columns: auto 1fr auto auto;
   align-items: center;
-  column-gap: 48px;
+  -moz-column-gap: 48px;
+       column-gap: 48px;
   padding-inline: 24px;
   padding-block: 0;
   width: 100%;
   margin: 0 auto;
   min-height: 57px;
-}
-.header {
-  /* LOGO */
 }
 .header__logo {
   grid-column: 1;
@@ -700,9 +715,6 @@
 }
 .header__logo-icon--desktop {
   display: block;
-}
-.header {
-  /* NAVIGATION */
 }
 .header__nav {
   grid-column: 2, 3;
@@ -738,9 +750,6 @@
 .header__nav-link:hover, .header__nav-link:focus-visible {
   opacity: 1;
 }
-.header {
-  /* CONTACT BUTTON */
-}
 .header__contact-link {
   grid-column: 3;
   justify-self: end;
@@ -759,20 +768,15 @@
   width: 22px;
   height: 22px;
 }
-.header {
-  /* BURGER – тільки позиція, все інше в burger.scss */
-}
 .header .burger {
   grid-column: 4;
   justify-self: end;
 }
-.header {
-  /* ===== TABLET ===== */
-}
 @media (max-width: 1024px) {
   .header__container {
     padding-inline: 20px;
-    column-gap: 32px;
+    -moz-column-gap: 32px;
+         column-gap: 32px;
   }
   .header__nav-list {
     gap: 24px;
@@ -788,16 +792,14 @@
     height: 30px;
   }
 }
-.header {
-  /* ===== MOBILE ===== */
-}
 @media (max-width: 768px) {
   .header {
     padding-top: 16px;
   }
   .header__container {
     padding-inline: 16px;
-    column-gap: 16px;
+    -moz-column-gap: 16px;
+         column-gap: 16px;
     min-height: 48px;
   }
   .header__nav {
@@ -814,6 +816,10 @@
 
 .hero {
   padding-top: 64px;
+  /* "flower studio" */
+  /* основне фото */
+  /* TABLET */
+  /* MOBILE */
 }
 .hero__logo-icon {
   display: none;
@@ -843,12 +849,10 @@
 .hero__top {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
-  column-gap: 48px;
+  -moz-column-gap: 48px;
+       column-gap: 48px;
   align-items: center;
   justify-items: center;
-}
-.hero {
-  /* "flower studio" */
 }
 .hero__label {
   justify-self: end;
@@ -856,9 +860,6 @@
   text-align: left;
   margin-right: -32px;
   font-size: 32px;
-}
-.hero {
-  /* основне фото */
 }
 .hero__image {
   justify-self: center;
@@ -881,15 +882,13 @@
   margin-top: -54px;
   font-size: 160px;
 }
-.hero {
-  /* TABLET */
-}
 @media (max-width: 1024px) {
   .hero {
     padding-top: 38px;
   }
   .hero__top {
-    column-gap: 32px;
+    -moz-column-gap: 32px;
+         column-gap: 32px;
   }
   .hero__label {
     font-size: 24px;
@@ -900,16 +899,14 @@
     font-size: 120px;
   }
 }
-.hero {
-  /* MOBILE */
-}
 @media (max-width: 768px) {
   .hero {
     padding-top: 44px;
   }
   .hero__top {
     grid-template-columns: 1fr auto 1fr;
-    column-gap: 12px;
+    -moz-column-gap: 12px;
+         column-gap: 12px;
   }
   .hero__label {
     justify-self: end;
@@ -937,7 +934,8 @@
 .delivery__item {
   display: grid;
   grid-template-columns: 64px 1fr;
-  column-gap: 16px;
+  -moz-column-gap: 16px;
+       column-gap: 16px;
   align-items: center;
 }
 .delivery__item .delivery__text {
@@ -983,7 +981,8 @@
   }
   .delivery__item {
     grid-template-columns: 40px 1fr;
-    column-gap: 12px;
+    -moz-column-gap: 12px;
+         column-gap: 12px;
   }
   .delivery__step {
     inline-size: 40px;
@@ -1212,7 +1211,8 @@
   grid-template-columns: auto 1fr 1fr 1fr auto;
   align-items: flex-start;
   justify-content: center;
-  column-gap: 48px;
+  -moz-column-gap: 48px;
+       column-gap: 48px;
 }
 .footer a,
 .footer p,
@@ -1281,11 +1281,13 @@
   white-space: nowrap;
   overflow-wrap: normal;
   word-break: normal;
-  hyphens: none;
+  -webkit-hyphens: none;
+          hyphens: none;
 }
 @media (max-width: 1024px) {
   .footer {
-    column-gap: 32px;
+    -moz-column-gap: 32px;
+         column-gap: 32px;
     padding-block: 20px;
   }
   .footer li + li {
@@ -1302,7 +1304,8 @@
 @media (max-width: 768px) {
   .footer {
     grid-template-columns: 1fr 1fr;
-    column-gap: 16px;
+    -moz-column-gap: 16px;
+         column-gap: 16px;
     row-gap: 16px;
     justify-items: flex-start;
     text-align: left;
@@ -1313,6 +1316,7 @@
   }
   .footer__times {
     grid-area: times;
+    min-width: -moz-max-content;
     min-width: max-content;
   }
   .footer__contacts {
@@ -1567,6 +1571,25 @@ main > section {
   transition: background-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease, outline-color 0.18s ease;
   width: 280px;
   height: 64px;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 28px;
+  line-height: 24px;
+  letter-spacing: 0;
+  color: #fff;
+  width: 280px;
+  height: 64px;
+  border-radius: 38px;
+  border: 0;
+  margin: auto;
+  padding: 16px 32px;
+  gap: 10px;
+  opacity: 1;
+  top: 1538px;
+  left: 476px;
+  will-change: transform;
+  backface-visibility: hidden;
+  transition: background-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease, outline-color 0.18s ease;
 }
 @media (max-width: 768px) {
   .button {
@@ -1589,27 +1612,6 @@ main > section {
 .button:active {
   transform: translateY(0);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-}
-.button {
-  font-weight: 500;
-  font-style: Medium;
-  font-size: 28px;
-  line-height: 24px;
-  letter-spacing: 0;
-  color: #fff;
-  width: 280px;
-  height: 64px;
-  border-radius: 38px;
-  border: 0;
-  margin: auto;
-  padding: 16px 32px;
-  gap: 10px;
-  opacity: 1;
-  top: 1538px;
-  left: 476px;
-  will-change: transform;
-  backface-visibility: hidden;
-  transition: background-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease, outline-color 0.18s ease;
 }
 @media (max-width: 768px) {
   .button {
@@ -1642,5 +1644,3 @@ main > section {
     left: 122px;
   }
 }
-
-/*# sourceMappingURL=style.css.map */

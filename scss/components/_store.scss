@@ -3,7 +3,9 @@
 .store {
   /* СПИСОК КАРТОК */
   &__list {
-    margin: 0;
+    width: 100%;          // замість max-width: 97%
+    max-width: 96%;
+    margin: 0;       // просто центруєм, без “звуження”
     padding: 0;
     list-style: none;
     margin-bottom: 60px;
@@ -14,18 +16,15 @@
 
     @media (min-width: 768px) {
       gap: 24px;
-
     }
   }
 
-  /* ОКРЕМИЙ ТОВАР */
   &__item {
     display: flex;
     flex-direction: column;
     gap: 8px;
   }
 
-  /* КАРТИНКА ТОВАРУ */
   &__image {
     display: block;
     width: 100%;
@@ -37,7 +36,6 @@
     }
   }
 
-  /* НАЗВА БУКЕТА (з лінією) */
   &__item-title {
     font-family: 'Montserrat', sans-serif;
     font-size: 36px;

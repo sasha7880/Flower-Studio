@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/main.css" />
   <title>Flower Studio</title>
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap&subset=cyrillic-ext"
@@ -18,15 +18,15 @@
       <!-- LOGO -->
       <a href="#anemone" class="header__logo" aria-label="Home">
         <svg class="header__logo-icon header__logo-icon--desktop" aria-hidden="true">
-          <image href="icons/desktop/logo.svg" />
+          <image href="./icons/desktop/logo.svg" />
         </svg>
 
         <svg class="header__logo-icon header__logo-icon--tablet" aria-hidden="true">
-          <image href="icons/tablet/logo.svg" />
+          <image href="./icons/tablet/logo.svg" />
         </svg>
 
         <svg class="header__logo-icon header__logo-icon--mobile" aria-hidden="true">
-          <image href="icons/mobile/logo.svg" />
+          <image href="./icons/mobile/logo.svg" />
         </svg>
       </a>
 
@@ -52,18 +52,19 @@
       </nav>
 
       <!-- CONTACT (open contact modal via :target) -->
-      <a
-        class="header__contact-link"
-        href="#contact-modal"
-        aria-label="Open contact form"
-      >
-        <svg class="header__contact-icon" width="22" height="22" aria-hidden="true">
-          <image href="./icons/tel.svg" width="22" height="22" />
-        </svg>
-      </a>
+<!-- CONTACT -->
+<button
+  class="header__contact-link"
+  type="button"
+  aria-label="Open contact form"
+  onclick="location.hash='contact-modal'"
+>
+  <svg class="header__contact-icon" width="22" height="22" aria-hidden="true">
+    <use href="./icons/sprite.svg#tel">
+  </svg>
+</button>
 
-      <!-- ====== BURGER (checkbox + label, БЕЗ JS) ====== -->
-      <!-- прихований чекбокс, який керує видимістю меню -->
+
       <input
         type="checkbox"
         id="burger-toggle"
@@ -164,10 +165,10 @@
         ×
       </a>
       <picture class="thanks__picture">
-        <source media="(min-width:1024px)" srcset="imgs/desktop/thanks.png" />
-        <source media="(min-width:768px)" srcset="imgs/tablet/thanks.png" />
+        <source media="(min-width:1024px)" srcset="./imgs/desktop/thanks.png" />
+        <source media="(min-width:768px)" srcset="./imgs/tablet/thanks.png" />
         <img
-          src="imgs/mobile/thanks.png"
+          src="./imgs/mobile/thanks.png"
           alt="Thank you illustration"
           loading="lazy"
           class="thanks__img"
@@ -187,12 +188,11 @@
         <p class="hero__label">flower studio</p>
 
         <picture class="hero__image">
-          <source media="(min-width:1024px)" srcset="imgs/desktop/hero.png" />
-          <source media="(min-width:768px)" srcset="imgs/tablet/hero.png" />
-          <img src="imgs/mobile/hero.png" alt="Flower composition" loading="lazy" />
+          <source media="(min-width:1024px)" srcset="./imgs/desktop/hero.png" />
+          <source media="(min-width:768px)" srcset="./imgs/tablet/hero.png" />
+          <img src="./imgs/mobile/hero.png" alt="Flower composition" loading="lazy" />
         </picture>
 
-        <div class="hero__logo">
           <!-- Desktop -->
           <svg
             class="hero__logo-icon hero__logo-icon--desktop"
@@ -200,7 +200,7 @@
             width="166"
             height="166"
           >
-            <image href="icons/desktop/hero-logo.svg" width="166" height="166" />
+            <image href="./icons/desktop/hero-logo.svg" width="166" height="166" />
           </svg>
 
           <!-- Tablet -->
@@ -210,7 +210,7 @@
             width="145"
             height="150"
           >
-            <image href="icons/tablet/hero-logo.svg" width="145" height="150" />
+            <image href="./icons/tablet/hero-logo.svg" width="145" height="150" />
           </svg>
 
           <!-- Mobile -->
@@ -220,9 +220,8 @@
             width="64"
             height="76"
           >
-            <image href="icons/mobile/hero-logo.svg" width="64" height="76" />
+            <image href="./icons/mobile/hero-logo.svg" width="64" height="76" />
           </svg>
-        </div>
       </div>
       <h1 class="hero__title">ANEMONE</h1>
     </section>
@@ -238,9 +237,9 @@
             we create is unique as you are.
           </p>
           <picture class="about__photo">
-            <source media="(min-width:1024px)" srcset="imgs/desktop/about.png" />
-            <source media="(min-width:768px)" srcset="imgs/tablet/about.png" />
-            <img src="imgs/mobile/about.png" alt="Florist at work" loading="lazy" />
+            <source media="(min-width:1024px)" srcset="./imgs/desktop/about.png" />
+            <source media="(min-width:768px)" srcset="./imgs/tablet/about.png" />
+            <img src="./imgs/mobile/about.png" alt="Florist at work" loading="lazy" />
           </picture>
         </div>
       </div>
@@ -254,9 +253,9 @@
         <ul class="store__list">
           <li class="store__item">
             <picture class="store__image store__image--compliments">
-              <source media="(min-width:1024px)" srcset="imgs/desktop/store-1.png" />
-              <source media="(min-width:768px)" srcset="imgs/tablet/store-1.png" />
-              <img src="imgs/mobile/store-1.png" alt="Compliment bouquet" loading="lazy" />
+              <source media="(min-width:1024px)" srcset="./imgs/desktop/store-one.png" />
+              <source media="(min-width:768px)" srcset="./imgs/tablet/store-one.png" />
+              <img src="./imgs/mobile/store-one.png" alt="Compliment bouquet" loading="lazy" />
             </picture>
             <h3 class="store__item-title">compliments</h3>
             <p class="store__item-price">from $15</p>
@@ -264,9 +263,9 @@
 
           <li class="store__item">
             <picture class="store__image store__image--s">
-              <source media="(min-width:1024px)" srcset="imgs/desktop/store-2.png" />
-              <source media="(min-width:768px)" srcset="imgs/tablet/store-2.png" />
-              <img src="imgs/mobile/store-2.png" alt="Bouquets size S" loading="lazy" />
+              <source media="(min-width:1024px)" srcset="./imgs/desktop/store-two.png" />
+              <source media="(min-width:768px)" srcset="./imgs/tablet/store-two.png" />
+              <img src="./imgs/mobile/store-two.png" alt="Bouquets size S" loading="lazy" />
             </picture>
             <h3 class="store__item-title">bouquets size S</h3>
             <p class="store__item-price">from $25</p>
@@ -274,9 +273,9 @@
 
           <li class="store__item">
             <picture class="store__image store__image--m">
-              <source media="(min-width:1024px)" srcset="imgs/desktop/store-3.png" />
-              <source media="(min-width:768px)" srcset="imgs/tablet/store-3.png" />
-              <img src="imgs/mobile/store-3.png" alt="Bouquets size M" loading="lazy" />
+              <source media="(min-width:1024px)" srcset="./imgs/desktop/store-three.png" />
+              <source media="(min-width:768px)" srcset="./imgs/tablet/store-three.png" />
+              <img src="./imgs/mobile/store-three.png" alt="Bouquets size M" loading="lazy" />
             </picture>
             <h3 class="store__item-title">bouquets size M</h3>
             <p class="store__item-price">from $45</p>
@@ -284,9 +283,9 @@
 
           <li class="store__item">
             <picture class="store__image store__image--l">
-              <source media="(min-width:1024px)" srcset="imgs/desktop/store-4.png" />
-              <source media="(min-width:768px)" srcset="imgs/tablet/store-4.png" />
-              <img src="imgs/mobile/store-4.png" alt="Bouquets size L" loading="lazy" />
+              <source media="(min-width:1024px)" srcset="./imgs/desktop/store-four.png" />
+              <source media="(min-width:768px)" srcset="./imgs/tablet/store-four.png" />
+              <img src="./imgs/mobile/store-four .png" alt="Bouquets size L" loading="lazy" />
             </picture>
             <h3 class="store__item-title">bouquets size L</h3>
             <p class="store__item-price">from $60</p>
@@ -327,9 +326,9 @@
         </ol>
 
         <picture class="delivery__image">
-          <source media="(min-width:1024px)" srcset="imgs/desktop/delivery.png" />
-          <source media="(min-width:768px)" srcset="imgs/tablet/delivery.png" />
-          <img src="imgs/mobile/delivery.png" alt="Delivery illustration" loading="lazy" />
+          <source media="(min-width:1024px)" srcset="./imgs/desktop/delivery.png" />
+          <source media="(min-width:768px)" srcset="./imgs/tablet/delivery.png" />
+          <img src="./imgs/mobile/delivery.png" alt="Delivery illustration" loading="lazy" />
         </picture>
       </div>
     </section>
@@ -342,35 +341,35 @@
         <div class="blog__gallery">
           <button class="blog__nav blog__nav--prev btn-reset" aria-label="Previous">
             <picture class="blog__nav-icon">
-              <source media="(min-width:1024px)" srcset="icons/desktop/left.png" />
-              <source media="(min-width:768px)" srcset="icons/tablet/left.png" />
-              <img src="icons/mobile/left.png" alt="Previous" loading="lazy" />
+              <source media="(min-width:1024px)" srcset="./icons/desktop/left.png" />
+              <source media="(min-width:768px)" srcset="./icons/tablet/left.png" />
+              <img src="./icons/mobile/left.png" alt="Previous" loading="lazy" />
             </picture>
           </button>
 
           <picture class="blog__img blog__img--1">
-            <source media="(min-width:1024px)" srcset="imgs/desktop/blog-1.png" />
-            <source media="(min-width:768px)" srcset="imgs/tablet/blog-1.png" />
-            <img src="imgs/mobile/blog-1.png" alt="Blog image 1" loading="lazy" />
+            <source media="(min-width:1024px)" srcset="./imgs/desktop/blog-1.png" />
+            <source media="(min-width:768px)" srcset="./imgs/tablet/blog-1.png" />
+            <img src="./imgs/mobile/blog-1.png" alt="Blog image 1" loading="lazy" />
           </picture>
 
           <picture class="blog__img blog__img--2">
-            <source media="(min-width:1024px)" srcset="imgs/desktop/blog-2.png" />
-            <source media="(min-width:768px)" srcset="imgs/tablet/blog-2.png" />
-            <img src="imgs/mobile/blog-2.png" alt="Blog image 2" loading="lazy" />
+            <source media="(min-width:1024px)" srcset="./imgs/desktop/blog-2.png" />
+            <source media="(min-width:768px)" srcset="./imgs/tablet/blog-2.png" />
+            <img src="./imgs/mobile/blog-2.png" alt="Blog image 2" loading="lazy" />
           </picture>
 
           <picture class="blog__img blog__img--3">
-            <source media="(min-width:1024px)" srcset="imgs/desktop/blog-3.png" />
-            <source media="(min-width:768px)" srcset="imgs/tablet/blog-3.png" />
-            <img src="imgs/mobile/blog-3.png" alt="Blog image 3" loading="lazy" />
+            <source media="(min-width:1024px)" srcset="./imgs/desktop/blog-3.png" />
+            <source media="(min-width:768px)" srcset="./imgs/tablet/blog-3.png" />
+            <img src="./imgs/mobile/blog-3.png" alt="Blog image 3" loading="lazy" />
           </picture>
 
           <button class="blog__nav blog__nav--next btn-reset" aria-label="Next">
             <picture class="blog__nav-icon">
-              <source media="(min-width:1024px)" srcset="icons/desktop/right.png" />
-              <source media="(min-width:768px)" srcset="icons/tablet/right.png" />
-              <img src="icons/mobile/right.png" alt="Next" loading="lazy" />
+              <source media="(min-width:1024px)" srcset="./icons/desktop/right.png" />
+              <source media="(min-width:768px)" srcset="./icons/tablet/right.png" />
+              <img src="./icons/mobile/right.png" alt="Next" loading="lazy" />
             </picture>
           </button>
         </div>
@@ -402,13 +401,13 @@
       <picture class="subscribe__picture">
         <source
           media="(min-width:1024px)"
-          srcset="imgs/desktop/subscribe-flower.png"
+          srcset="./imgs/desktop/subscribe-flower.png"
         />
         <source
           media="(min-width:768px)"
-          srcset="imgs/tablet/subscribe-flower.png"
+          srcset="./imgs/tablet/subscribe-flower.png"
         />
-        <img src="imgs/mobile/subscribe-flower.png" alt="Flowers" />
+        <img src="./imgs/mobile/subscribe-flower.png" alt="Flowers" />
       </picture>
       <div class="subscribe__content">
         <h2 class="subscribe__title" id="subscribe-title">Follow to our newsletter</h2>
@@ -446,9 +445,9 @@
     <div class="footer__logo">
       <a href="#anemone" class="footer__logo-link" aria-label="Home">
         <picture class="footer__logo-img">
-          <source media="(min-width:1024px)" srcset="imgs/desktop/logo-footer.png" />
-          <source media="(min-width:768px)" srcset="imgs/tablet/logo-footer.png" />
-          <img src="imgs/mobile/logo-footer.png" alt="Anemone — Flower Studio logo" />
+          <source media="(min-width:1024px)" srcset="./imgs/desktop/logo-footer.png" />
+          <source media="(min-width:768px)" srcset="./imgs/tablet/logo-footer.png" />
+          <img src="./imgs/mobile/logo-footer.png" alt="Anemone — Flower Studio logo" />
         </picture>
       </a>
     </div>

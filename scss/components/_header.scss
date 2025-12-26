@@ -3,70 +3,40 @@
 @use '../utils/mixins' as m;
 
 .header {
-  // 28 px зверху від краю сторінки
   padding-top: 28px;
+  padding-right: 30px;
+
 
   &__container {
-    display: grid;
-    grid-template-columns: auto 1fr auto auto; // logo | nav | phone | burger
-    align-items: center;
-    column-gap: 48px;
-    padding-inline: 24px;
-    padding-block: 0;                // висоту контролюємо через min-height
-    width: 100%;
-    margin: 0 auto;
-    min-height: 57px;                // висота хедера з макета
+    display: flex;
+    justify-content: space-between;
+    align-items: center;          
   }
 
-  /* LOGO */
-  &__logo {
-    grid-column: 1;
-    display: inline-flex;
-    align-items: center;
-    text-decoration: none;
-    color: inherit;
-    width: 91px;
-  }
 
-  // базовий стиль для всіх варіантів логотипу
+
   &__logo-icon {
-    display: none;
     height: 72px;
+    max-width: 72px;
+    color: black;
 
-    // щоб велике svg не роздувало рядок
-    image {
-      width: auto;
-      height: 100%;
-      display: block;
-    }
   }
 
-  // за замовчуванням показуємо десктопний варіант
   &__logo-icon--desktop {
     display: block;
   }
+  &__logo-icon--mobile,
+  &__logo-icon--tablet {
+      display: none;
+    }
 
-  /* NAVIGATION */
-  &__nav {
-    grid-column: 2,3;
-    justify-self: center;
-    display: flex;
-    justify-content: center;
-    min-width: 0;
-  }
 
   &__nav-list {
     display: flex;
     align-items: center;
-    gap: 32px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
+    gap: 48px;
   }
 
-  &__nav-item {
-    flex: 0 0 auto;
-  }
 
   &__nav-link {
     display: inline-block;
@@ -74,7 +44,7 @@
     color: inherit;
     font-weight: 400;
     font-size: 20px;
-    line-height: 1.2;                // трохи більше 1, щоб оптично центр
+    line-height: 1.2; 
     letter-spacing: 0;
     padding-block: 0;
     padding-inline: 2px;
@@ -89,7 +59,6 @@
     }
   }
 
-  /* CONTACT BUTTON */
   &__contact-link {
     grid-column: 3;
     justify-self: end;
@@ -112,17 +81,14 @@
     height: 22px;
   }
 
-  /* BURGER – тільки позиція, все інше в burger.scss */
   .burger {
     grid-column: 4;
     justify-self: end;
   }
 
-  /* ===== TABLET ===== */
   @include m.mq(tablet) {
     &__container {
-      padding-inline: 20px;
-      column-gap: 32px;
+      gap: 32px;
     }
 
     &__nav-list {
@@ -133,32 +99,27 @@
       font-size: 20px;
     }
 
-    // показуємо tablet-іконку, ховаємо desktop
     &__logo-icon--desktop {
       display: none;
     }
 
     &__logo-icon--tablet {
       display: block;
-      height: 30px;
     }
   }
 
-  /* ===== MOBILE ===== */
   @include m.mq(mobile) {
     padding-top: 16px;
 
     &__container {
-      padding-inline: 16px;
-      column-gap: 16px;
+      gap: 16px;
       min-height: 48px;
     }
 
     &__nav {
-      display: none; // меню тільки в бургері
+      display: none; 
     }
 
-    // показуємо мобільне лого
     &__logo-icon--desktop,
     &__logo-icon--tablet {
       display: none;
@@ -166,12 +127,6 @@
 
     &__logo-icon--mobile {
       display: block;
-            height: 28px;
-
-    }
-
-    &__contact-icon {
-
     }
   }
 }

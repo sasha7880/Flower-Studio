@@ -13,8 +13,7 @@ body {
   margin: 0;
   padding-inline: 16px;
   padding-block: 0;
-  display: flow-root;
-  font-family: "Montserrat";
+  font-family: v.$basic-font;
 }
 
 @media (min-width: 768px) {
@@ -32,16 +31,10 @@ ul {
 }
 
 .container {
-  width: 100%;
   margin-inline: auto;
   padding-inline: 16px;
 }
 
-@media (min-width: 768px) {
-  .container {
-    padding-inline: 30px;
-  }
-}
 
 section {
   margin-left: auto !important;
@@ -90,7 +83,6 @@ main > section {
   }
 }
 
-/* BUTTON */
 
 .button {
   @extend %btn-base !optional;

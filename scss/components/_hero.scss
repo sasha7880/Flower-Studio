@@ -3,9 +3,7 @@
 @use '../utils/mixins' as m;
 
 .hero {
-  padding-top: 64px;
   &__logo-icon { display: none; }
-
   &__logo-icon--desktop { display: block; }
 
   @include m.mq(tablet) {
@@ -21,92 +19,39 @@
   }
 
   &__top {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    column-gap: 48px;
+    margin-top: 60px;
+    display: flex;
     align-items: center;
-    justify-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 110px; 
   }
 
-  /* "flower studio" */
   &__label {
-    justify-self: end;
-    align-self: center;
-    text-align: left;
-    margin-right: -32px;
     font-size: 32px;
   }
 
-  /* основне фото */
-  &__image {
-    justify-self: center;
-    align-self: center;
-    position: relative;
-    z-index: 1;
 
-    img {
-      display: block;
-    }
-  }
-
-  &__logo {
-    justify-self: start;
-    align-self: center;
-    display: block;
-  }
 
   &__title {
-    text-align: center;
-    position: relative;
-    z-index: 2;
-    margin-top: -54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
     font-size: 160px;
   }
 
-  /* TABLET */
   @include m.mq(tablet) {
-    padding-top: 38px;
+    &__top { gap: 20px; }
 
-    &__top {
-      column-gap: 32px;
-    }
-
-    &__label {
-      font-size: 24px;
-      margin-right: -24px;
-    }
-
-    &__title {
-      margin-top: -32px;
-      font-size: 120px;
-    }
-
+    &__label { font-size: 24px; }
+    &__title { font-size: 120px; }
   }
 
-  /* MOBILE */
   @include m.mq(mobile) {
-    padding-top: 44px;
+    &__top { gap: 14px; }
 
-    &__top {
-      grid-template-columns: 1fr auto 1fr;
-      column-gap: 12px;
-    }
-
-    &__label {
-      justify-self: end;
-      text-align: left;
-      margin-right: -12px;
-      font-size: 14px;
-    }
-
-    &__logo {
-      justify-self: start;
-    }
-
-    &__title {
-      margin-top: -18px;
-      font-size: 52px;
-    }
+    &__label { font-size: 14px; }
+    &__title { font-size: 52px; }
   }
-
 }
